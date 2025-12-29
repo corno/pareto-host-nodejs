@@ -18,8 +18,7 @@
     "dist"
   ],
   "dependencies": {
-    "exupery-resources": "^0.3.54",
-    "pareto-host-nodejs": "^0.1.1"
+    "exupery-resources": "^0.3.54"
   },
   "repository": {
     "type": "git",
