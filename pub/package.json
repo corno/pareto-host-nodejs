@@ -18,7 +18,7 @@
     "dist"
   ],
   "dependencies": {
-    "exupery-resources": "^0.3.54"
+    "exupery-resources": "^0.3.55"
   },
   "repository": {
     "type": "git",
