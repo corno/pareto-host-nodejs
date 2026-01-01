@@ -2,11 +2,11 @@ import * as _pc from 'pareto-core-command'
 import * as _pinternals from 'pareto-core-internals'
 
 //interface
-import * as resources from "exupery-resources/dist/interface/resources"
+import * as resources from "pareto-resources/dist/interface/resources"
 
 //dependencies
 import { cp as fs_cp } from "fs"
-import * as s_path from "exupery-resources/dist/implementation/serializers/schemas/path"
+import * as s_path from "pareto-resources/dist/implementation/manual/schemas/path/serializers"
 
 export const $$: resources.commands.copy = _pc.__create_resource_command((
     $p,

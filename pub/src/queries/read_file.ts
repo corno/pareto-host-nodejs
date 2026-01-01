@@ -2,10 +2,10 @@ import * as _pq from 'pareto-core-query'
 import * as _pinternals from 'pareto-core-internals'
 
 //interface
-import * as resources from "exupery-resources/dist/interface/resources"
+import * as resources from "pareto-resources/dist/interface/resources"
 
 //dependencies
-import * as s_path from "exupery-resources/dist/implementation/serializers/schemas/path"
+import * as s_path from "pareto-resources/dist/implementation/manual/schemas/path/serializers"
 import { readFile as fs_readFile } from "fs"
 
 export const $$: resources.queries.read_file = _pq.__create_query((

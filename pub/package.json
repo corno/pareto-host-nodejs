@@ -18,7 +18,7 @@
     "dist"
   ],
   "dependencies": {
-    "exupery-resources": "^0.3.55"
+    "pareto-resources": "^0.1.1"
   },
   "repository": {
     "type": "git",

@@ -2,11 +2,11 @@ import * as _pc from 'pareto-core-command'
 import * as _pinternals from 'pareto-core-internals'
 
 //interface
-import * as resources from "exupery-resources/dist/interface/resources"
+import * as resources from "pareto-resources/dist/interface/resources"
 
 //dependencies
 import { rm as fs_rm } from "fs"
-import * as s_path from "exupery-resources/dist/implementation/serializers/schemas/path"
+import * as s_path from "pareto-resources/dist/implementation/manual/schemas/path/serializers"
 
 
 export const $$: resources.commands.remove = _pc.__create_resource_command((

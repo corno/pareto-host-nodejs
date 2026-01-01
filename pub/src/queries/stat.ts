@@ -3,11 +3,11 @@ import * as _pinternals from 'pareto-core-internals'
 
 
 //interface
-import * as resources from "exupery-resources/dist/interface/resources"
+import * as resources from "pareto-resources/dist/interface/resources"
 
 //dependencies
 import { stat as fs_stat } from "fs"
-import * as s_path from "exupery-resources/dist/implementation/serializers/schemas/path"
+import * as s_path from "pareto-resources/dist/implementation/manual/schemas/path/serializers"
 
 export const $$: resources.queries.stat = _pq.__create_query((
     $p

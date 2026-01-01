@@ -2,7 +2,7 @@ import * as _pq from 'pareto-core-query'
 import * as _pinternals from 'pareto-core-internals'
 
 //interface
-import * as resources from "exupery-resources/dist/interface/resources"
+import * as resources from "pareto-resources/dist/interface/resources"
 
 //dependencies
 import { spawn } from "node:child_process"

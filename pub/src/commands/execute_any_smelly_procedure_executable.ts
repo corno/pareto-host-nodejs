@@ -2,12 +2,12 @@ import * as _pc from 'pareto-core-command'
 import * as _pinternals from 'pareto-core-internals'
 
 //interface
-import * as resources from "exupery-resources/dist/interface/resources"
+import * as resources from "pareto-resources/dist/interface/resources"
 
 //dependencies
 import { spawn } from "node:child_process"
 
-// import { Signature } from "exupery-resources/dist/interface/algorithms/commands/execute_smelly_procedure_executable"
+// import { Signature } from "pareto-resources/dist/interface/algorithms/commands/execute_smelly_procedure_executable"
 
 
 /**

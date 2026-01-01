@@ -1,7 +1,7 @@
 import * as _pc from 'pareto-core-command'
 
 //interface
-import * as resources from "exupery-resources/dist/interface/resources"
+import * as resources from "pareto-resources/dist/interface/resources"
 
 export const $$: resources.commands.log_error = _pc.__create_resource_command((
     $p,

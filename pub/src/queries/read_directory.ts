@@ -2,12 +2,12 @@ import * as _pq from 'pareto-core-query'
 import * as _pinternals from 'pareto-core-internals'
 
 //interface
-import * as resources from "exupery-resources/dist/interface/resources"
+import * as resources from "pareto-resources/dist/interface/resources"
 
 //dependencies
 import { readdir as fs_readdir } from "fs"
-import * as s_path from "exupery-resources/dist/implementation/serializers/schemas/path"
-import * as t_path_to_path from "exupery-resources/dist/implementation/transformers/schemas/path/path"
+import * as s_path from "pareto-resources/dist/implementation/manual/schemas/path/serializers"
+import * as t_path_to_path from "pareto-resources/dist/implementation/manual/schemas/path/transformers/path"
 
 
 export const $$: resources.queries.read_directory = _pq.__create_query((

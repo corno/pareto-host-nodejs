@@ -1,7 +1,7 @@
 import * as _pq from 'pareto-core-query'
 
 //interface
-import * as resources from "exupery-resources/dist/interface/resources"
+import * as resources from "pareto-resources/dist/interface/resources"
 
 export const $$: resources.queries.get_instream_data = _pq.__create_query((
 ) => {
