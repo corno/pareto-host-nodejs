@@ -15,11 +15,11 @@ import { spawn } from "node:child_process"
  * The executable being executed is assumed to only cause side effects
  * and not return any meaningful data, std::out is therefor ignored
  */
-export const $$: resources.commands.execute_any_smelly_command_executable = _pc.__create_resource_command( (
+export const $$: resources.commands.execute_any_smelly_command_executable = _pc.__command( (
     $p,
 ) => {
     const args = $p.args.__get_raw_copy()
-    return _pc.__create_command_promise({
+    return _pc.__command_promise({
         'execute': (on_success, on_error) => {
 
             const child = spawn($p.program, args, {

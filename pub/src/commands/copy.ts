@@ -8,10 +8,10 @@ import * as resources from "pareto-resources/dist/interface/resources"
 import { cp as fs_cp } from "fs"
 import * as s_path from "pareto-resources/dist/implementation/manual/schemas/path/serializers"
 
-export const $$: resources.commands.copy = _pc.__create_resource_command((
+export const $$: resources.commands.copy = _pc.__command((
     $p,
 ) => {
-    return _pc.__create_command_promise({
+    return _pc.__command_promise({
         'execute': (on_success, on_error) => {
             const options: any = {}
             $p.options.recursive.map(($) => { options.recursive = $ })
