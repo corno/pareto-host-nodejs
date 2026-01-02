@@ -3,6 +3,8 @@ import * as _pinternals from 'pareto-core-internals'
 
 import { signature } from './signature'
 
+export * from './signature'
+
 import { $$ as p_copy_signature } from "./commands/copy"
 import { $$ as p_execute_any_procedure_executable } from "./commands/execute_any_procedure_executable"
 import { $$ as p_execute_any_smelly_procedure_executable } from "./commands/execute_any_smelly_procedure_executable"
