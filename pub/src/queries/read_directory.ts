@@ -10,10 +10,10 @@ import * as s_path from "pareto-resources/dist/implementation/manual/schemas/pat
 import * as t_path_to_path from "pareto-resources/dist/implementation/manual/schemas/path/transformers/path"
 
 
-export const $$: resources.queries.read_directory = _pq.__create_query((
+export const $$: resources.queries.read_directory = _pq.__query((
     $p
 ) => {
-    return _pq.__create_query_result((on_value, on_error) => {
+    return _pq.__query_result((on_value, on_error) => {
         fs_readdir(
             s_path.Node_Path($p.path),
             {

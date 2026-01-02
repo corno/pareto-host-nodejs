@@ -8,10 +8,10 @@ import * as resources from "pareto-resources/dist/interface/resources"
 import * as s_path from "pareto-resources/dist/implementation/manual/schemas/path/serializers"
 import { readFile as fs_readFile } from "fs"
 
-export const $$: resources.queries.read_file = _pq.__create_query((
+export const $$: resources.queries.read_file = _pq.__query((
     $p
 ) => {
-    return _pq.__create_query_result((on_value, on_error) => {
+    return _pq.__query_result((on_value, on_error) => {
         fs_readFile(
             s_path.Node_Path($p),
             { 'encoding': 'utf-8' },

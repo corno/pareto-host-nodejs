@@ -3,9 +3,9 @@ import * as _pq from 'pareto-core-query'
 //interface
 import * as resources from "pareto-resources/dist/interface/resources"
 
-export const $$: resources.queries.get_instream_data = _pq.__create_query((
+export const $$: resources.queries.get_instream_data = _pq.__query((
 ) => {
-    return _pq.__create_query_result((on_value) => {
+    return _pq.__query_result((on_value) => {
 
         const stdin = process.stdin;
         let data = '';

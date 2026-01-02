@@ -9,10 +9,10 @@ import * as resources from "pareto-resources/dist/interface/resources"
 import { stat as fs_stat } from "fs"
 import * as s_path from "pareto-resources/dist/implementation/manual/schemas/path/serializers"
 
-export const $$: resources.queries.stat = _pq.__create_query((
+export const $$: resources.queries.stat = _pq.__query((
     $p
 ) => {
-    return _pq.__create_query_result((on_value, on_error) => {
+    return _pq.__query_result((on_value, on_error) => {
         fs_stat(
                 s_path.Node_Path($p),
             (err, stats) => {

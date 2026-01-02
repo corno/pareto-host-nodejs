@@ -13,10 +13,10 @@ import { spawn } from "node:child_process"
  * The executable being executed is assumed to be side effect free
  * There is no way to give guarantees about that though
  */
-export const $$: resources.queries.execute_any_query_executable = _pq.__create_query(
+export const $$: resources.queries.execute_any_query_executable = _pq.__query(
     ($p,) => {
         const args = $p.args.__get_raw_copy()
-        return _pq.__create_query_result((on_value, on_error) => {
+        return _pq.__query_result((on_value, on_error) => {
 
             const child = spawn($p.program, args, {
                 shell: false, // ✅ no implicit parsing
