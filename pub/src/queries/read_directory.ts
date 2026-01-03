@@ -32,7 +32,7 @@ export const $$: resources.queries.read_directory = _pq.__query((
                         return _pinternals.panic(`unhandled fs.readdir error code: ${err.code}`)
                     }))
                 } else {
-                    on_value(_pinternals.build_dictionary(
+                    on_value(_pinternals.dictionary_build(
                         ($i) => {
                             files.forEach((node) => {
                                 $i['add entry'](node.name, {

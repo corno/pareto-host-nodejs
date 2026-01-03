@@ -49,7 +49,7 @@ export const $$: resources.queries.execute_any_query_executable = _pq.__query(
                 } else {
                     on_error(_pinternals.block(() => {
                         return ['non zero exit code', {
-                            'exit code': exitCode === null ? _pinternals.not_set() : _pinternals.set(exitCode),
+                            'exit code': exitCode === null ? _pinternals.optional_not_set() : _pinternals.optional_set(exitCode),
                             'stderr': stderrData,
                         }]
                     }))
