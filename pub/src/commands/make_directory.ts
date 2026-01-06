@@ -1,5 +1,5 @@
 import * as _pc from 'pareto-core-command'
-import * as _pinternals from 'pareto-core-internals'
+import * as _pr from 'pareto-core-refiner'
 
 //interface
 import * as resources from "pareto-resources/dist/interface/resources"
@@ -20,11 +20,11 @@ export const $$: resources.commands.make_directory = _pc.__command((
                 },
                 (err, path) => {
                     if (err) {
-                        on_error(_pinternals.block(() => {
+                        on_error(_pr.state_group.block(() => {
                             if (err.code === 'EEXIST') {
                                 return ['directory already exists', null]
                             }
-                            return _pinternals.panic(`unhandled fs.mkdir error code: ${err.code}`)
+                            return _pr.fixme_abort(`unhandled fs.mkdir error code: ${err.code}`)
                         }))
                     } else {
                         on_success()

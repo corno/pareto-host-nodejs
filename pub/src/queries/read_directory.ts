@@ -1,5 +1,6 @@
 import * as _pq from 'pareto-core-query'
-import * as _pinternals from 'pareto-core-internals'
+
+import * as _pr from 'pareto-core-refiner'
 
 //interface
 import * as resources from "pareto-resources/dist/interface/resources"
@@ -22,35 +23,37 @@ export const $$: resources.queries.read_directory = _pq.__query((
             },
             (err, files) => {
                 if (err) {
-                    on_error(_pinternals.block(() => {
+                    on_error(_pr.state_group.block(() => {
                         if (err.code === 'ENOENT') {
                             return ['directory does not exist', null]
                         }
                         if (err.code === 'ENOTDIR' || err.code === 'EISDIR') {
                             return ['node is not a directory', null]
                         }
-                        return _pinternals.panic(`unhandled fs.readdir error code: ${err.code}`)
+                        return _pr.fixme_abort(`unhandled fs.readdir error code: ${err.code}`)
                     }))
                 } else {
-                    on_value(_pinternals.dictionary_build(
-                        ($i) => {
-                            files.forEach((node) => {
-                                $i['add entry'](node.name, {
-                                    'node type': node.isFile()
-                                        ? ['file', null]
-                                        : node.isDirectory() ? ['directory', null] : ['other', null],
-                                    'context directory': t_path_to_path.deprecated_node_path_to_context_path($p.path),
-                                    'path': t_path_to_path.extend_node_path(
-                                        $p.path,
-                                        {
-                                            'addition': node.name,
-                                        }
-                                    )
+                    on_value(
+                        _pr.deprecated_build_dictionary(
+                            ($i) => {
+                                files.forEach((node) => {
+                                    $i['add entry'](node.name, {
+                                        'node type': node.isFile()
+                                            ? ['file', null]
+                                            : node.isDirectory() ? ['directory', null] : ['other', null],
+                                        'context directory': t_path_to_path.deprecated_node_path_to_context_path($p.path),
+                                        'path': t_path_to_path.extend_node_path(
+                                            $p.path,
+                                            {
+                                                'addition': node.name,
+                                            }
+                                        )
+                                    })
                                 })
-                            })
-                        },
-                        () => _pinternals.panic(`unreachable`)
-                    ))
+                            },
+                            // () => _pinternals.panic(`unreachable`)
+                        )
+                    )
                 }
             }
         )

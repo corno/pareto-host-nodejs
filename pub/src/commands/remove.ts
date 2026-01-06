@@ -1,5 +1,5 @@
 import * as _pc from 'pareto-core-command'
-import * as _pinternals from 'pareto-core-internals'
+import * as _pr from 'pareto-core-refiner'
 
 //interface
 import * as resources from "pareto-resources/dist/interface/resources"
@@ -25,7 +25,7 @@ export const $$: resources.commands.remove = _pc.__command((
                         if (err.code === 'ENOENT' && !$p['error if not exists']) {
                             on_success()
                         } else {
-                            on_error(_pinternals.block(() => {
+                            on_error(_pr.state_group.block(() => {
                                 if (err.code === 'ENOENT') {
                                     return ['node does not exist', null]
                                 }
@@ -38,7 +38,7 @@ export const $$: resources.commands.remove = _pc.__command((
                                 // if (err.code === 'ERR_FS_EISDIR') {
                                 //     return ['node is a directory', null]
                                 // }
-                                return _pinternals.panic(`unhandled fs.rm error code: ${err.code}`)
+                                return _pr.fixme_abort(`unhandled fs.rm error code: ${err.code}`)
                             }))
                         }
                     } else {

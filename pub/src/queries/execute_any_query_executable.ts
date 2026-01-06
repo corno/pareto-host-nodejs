@@ -1,5 +1,5 @@
 import * as _pq from 'pareto-core-query'
-import * as _pinternals from 'pareto-core-internals'
+import * as _pr from 'pareto-core-refiner'
 
 //interface
 import * as resources from "pareto-resources/dist/interface/resources"
@@ -34,7 +34,7 @@ export const $$: resources.queries.execute_any_query_executable = _pq.__query(
             })
 
             child.on("error", err => {
-                on_error(_pinternals.block(() => {
+                on_error(_pr.state_group.block(() => {
                     return ['failed to spawn', {
                         message: err instanceof Error ? err.message : `${err}`
                     }]
@@ -47,9 +47,9 @@ export const $$: resources.queries.execute_any_query_executable = _pq.__query(
                         stdout: stdoutData,
                     })
                 } else {
-                    on_error(_pinternals.block(() => {
+                    on_error(_pr.state_group.block(() => {
                         return ['non zero exit code', {
-                            'exit code': exitCode === null ? _pinternals.optional_not_set() : _pinternals.optional_set(exitCode),
+                            'exit code': exitCode === null ? _pr.optional.not_set() : _pr.optional.set(exitCode),
                             'stderr': stderrData,
                         }]
                     }))

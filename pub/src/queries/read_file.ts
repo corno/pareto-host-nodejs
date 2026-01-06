@@ -1,5 +1,5 @@
 import * as _pq from 'pareto-core-query'
-import * as _pinternals from 'pareto-core-internals'
+import * as _pr from 'pareto-core-refiner'
 
 //interface
 import * as resources from "pareto-resources/dist/interface/resources"
@@ -17,7 +17,7 @@ export const $$: resources.queries.read_file = _pq.__query((
             { 'encoding': 'utf-8' },
             (err, data) => {
                 if (err) {
-                    on_error(_pinternals.block(() => {
+                    on_error(_pr.state_group.block(() => {
                         if (err.code === 'ENOENT') {
                             return ['file does not exist', null]
                         }
@@ -33,7 +33,7 @@ export const $$: resources.queries.read_file = _pq.__query((
                         if (err.code === 'EIO' || err.code === 'ENXIO') {
                             return ['device not ready', null]
                         }
-                        return _pinternals.panic(`unhandled fs.readFile error code: ${err.code}`)
+                        return _pr.fixme_abort(`unhandled fs.readFile error code: ${err.code}`)
                     }))
                 } else {
                     on_value(data)

@@ -1,5 +1,5 @@
 import * as _pc from 'pareto-core-command'
-import * as _pinternals from 'pareto-core-internals'
+import * as _pr from 'pareto-core-refiner'
 
 //interface
 import * as resources from "pareto-resources/dist/interface/resources"
@@ -24,7 +24,7 @@ export const $$: resources.commands.copy = _pc.__command((
                 options,
                 (err) => {
                     if (err) {
-                        on_error(_pinternals.block(() => {
+                        on_error(_pr.state_group.block(() => {
                             if (err.code === 'ENOENT') {
                                 return ['source does not exist', null]
                             }
@@ -40,7 +40,7 @@ export const $$: resources.commands.copy = _pc.__command((
                             if (err.code === 'EIO' || err.code === 'ENXIO') {
                                 return ['device not ready', null]
                             }
-                            return _pinternals.panic(`unhandled fs.cp error code: ${err.code}`)
+                            return _pr.fixme_abort(`unhandled fs.cp error code: ${err.code}`)
                         }))
                     } else {
                         on_success()

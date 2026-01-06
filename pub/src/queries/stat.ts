@@ -1,5 +1,5 @@
 import * as _pq from 'pareto-core-query'
-import * as _pinternals from 'pareto-core-internals'
+import * as _pr from 'pareto-core-refiner'
 
 
 //interface
@@ -17,11 +17,11 @@ export const $$: resources.queries.stat = _pq.__query((
                 s_path.Node_Path($p),
             (err, stats) => {
                 if (err) {
-                    on_error(_pinternals.block(() => {
+                    on_error(_pr.state_group.block(() => {
                         if (err.code === 'ENOENT') {
                             return ['node does not exist', null]
                         }
-                        return _pinternals.panic(`unhandled fs.stat error code: ${err.code}`)
+                        return _pr.fixme_abort(`unhandled fs.stat error code: ${err.code}`)
                     }))
                 }
                 on_value(stats.isFile()
