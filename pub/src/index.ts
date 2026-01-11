@@ -6,8 +6,8 @@ import { signature } from './signature'
 export * from './signature'
 
 import { $$ as p_copy_signature } from "./commands/copy"
-import { $$ as p_execute_any_procedure_executable } from "./commands/execute_any_procedure_executable"
-import { $$ as p_execute_any_smelly_procedure_executable } from "./commands/execute_any_smelly_procedure_executable"
+import { $$ as p_execute_any_command_executable } from "./commands/execute_any_command_executable"
+import { $$ as p_execute_any_smelly_command_executable } from "./commands/execute_any_smelly_command_executable"
 import { $$ as p_log } from "./commands/log"
 import { $$ as p_log_error } from "./commands/log_error"
 import { $$ as p_make_directory } from "./commands/make_directory"
@@ -28,14 +28,14 @@ import { $$ as q_stat } from "./queries/stat"
  * `node` and the script name), and setting the process exit code to the
  * returned value when the async value completes.
  */
-export const run_main_procedure: signature = (
+export const run_main_command: signature = (
     get_main
 ) => {
     get_main({
         'commands': {
             'copy': p_copy_signature,
-            'execute any procedure executable': p_execute_any_procedure_executable,
-            'execute any smelly procedure executable': p_execute_any_smelly_procedure_executable,
+            'execute any command executable': p_execute_any_command_executable,
+            'execute any smelly command executable': p_execute_any_smelly_command_executable,
             'log error': p_log_error,
             'log': p_log,
             'make directory': p_make_directory,

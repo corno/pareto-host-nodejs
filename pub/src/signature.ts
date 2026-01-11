@@ -1,8 +1,8 @@
 import * as _pi from 'pareto-core-interface'
 
 import * as d_copy from "pareto-resources/dist/interface/generated/pareto/schemas/copy/data_types/source"
-import * as d_execute_any_procedure_executable from "pareto-resources/dist/interface/generated/pareto/schemas/execute_any_procedure_executable/data_types/target"
-import * as d_execute_any_smelly_procedure_executable from "pareto-resources/dist/interface/generated/pareto/schemas/execute_any_smelly_procedure_executable/data_types/target"
+import * as d_execute_any_command_executable from "pareto-resources/dist/interface/generated/pareto/schemas/execute_any_command_executable/data_types/target"
+import * as d_execute_any_smelly_command_executable from "pareto-resources/dist/interface/generated/pareto/schemas/execute_any_smelly_command_executable/data_types/target"
 import * as d_execute_any_query_executable from "pareto-resources/dist/interface/generated/pareto/schemas/execute_any_query_executable/data_types/target"
 import * as d_get_instream_data from "pareto-resources/dist/interface/generated/pareto/schemas/get_instream_data/data_types/target"
 import * as d_log from "pareto-resources/dist/interface/generated/pareto/schemas/log/data_types/target"
@@ -21,8 +21,8 @@ import * as d_main from "pareto-resources/dist/interface/to_be_generated/temp_ma
 export type Available_Standard_Resources = {
     'commands': {
         'copy': _pi.Command<d_copy.Error, d_copy.Parameters>
-        'execute any procedure executable': _pi.Command<d_execute_any_procedure_executable.Error, d_execute_any_procedure_executable.Parameters>
-        'execute any smelly procedure executable': _pi.Command<d_execute_any_smelly_procedure_executable.Error, d_execute_any_smelly_procedure_executable.Parameters>
+        'execute any command executable': _pi.Command<d_execute_any_command_executable.Error, d_execute_any_command_executable.Parameters>
+        'execute any smelly command executable': _pi.Command<d_execute_any_smelly_command_executable.Error, d_execute_any_smelly_command_executable.Parameters>
         'log error': _pi.Command<null, d_log_error.Parameters>
         'log': _pi.Command<null, d_log.Parameters>
         'make directory': _pi.Command<d_make_directory.Error, d_make_directory.Parameters>
