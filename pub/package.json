@@ -18,7 +18,7 @@
     "dist"
   ],
   "dependencies": {
-    "pareto-resources": "^0.1.14"
+    "pareto-resources": "^0.1.15"
   },
   "repository": {
     "type": "git",
