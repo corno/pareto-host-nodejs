@@ -1,6 +1,9 @@
 import * as _pq from 'pareto-core-query'
 import * as _pr from 'pareto-core-refiner'
 
+import { __query } from 'pareto-core-internals/dist/algorithm_types/query/query'
+import { __query_result } from 'pareto-core-internals/dist/algorithm_types/query/query_result'
+
 //interface
 import * as resources from "pareto-resources/dist/interface/resources"
 
@@ -13,10 +16,10 @@ import { spawn } from "node:child_process"
  * The executable being executed is assumed to be side effect free
  * There is no way to give guarantees about that though
  */
-export const $$: resources.queries.execute_any_query_executable = _pq.__query(
+export const $$: resources.queries.execute_any_query_executable = __query(
     ($p,) => {
         const args = $p.args.__get_raw_copy()
-        return _pq.__query_result((on_value, on_error) => {
+        return __query_result((on_value, on_error) => {
 
             const child = spawn($p.program, args, {
                 shell: false, // ✅ no implicit parsing

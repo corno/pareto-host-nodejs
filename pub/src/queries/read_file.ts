@@ -1,6 +1,9 @@
 import * as _pq from 'pareto-core-query'
 import * as _pr from 'pareto-core-refiner'
 
+import { __query } from 'pareto-core-internals/dist/algorithm_types/query/query'
+import { __query_result } from 'pareto-core-internals/dist/algorithm_types/query/query_result'
+
 //interface
 import * as resources from "pareto-resources/dist/interface/resources"
 
@@ -8,10 +11,10 @@ import * as resources from "pareto-resources/dist/interface/resources"
 import * as s_path from "pareto-resources/dist/implementation/manual/schemas/path/serializers"
 import { readFile as fs_readFile } from "fs"
 
-export const $$: resources.queries.read_file = _pq.__query((
+export const $$: resources.queries.read_file = __query((
     $p
 ) => {
-    return _pq.__query_result((on_value, on_error) => {
+    return __query_result((on_value, on_error) => {
         fs_readFile(
             s_path.Node_Path($p),
             { 'encoding': 'utf-8' },

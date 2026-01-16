@@ -1,11 +1,14 @@
 import * as _pq from 'pareto-core-query'
 
+import { __query } from 'pareto-core-internals/dist/algorithm_types/query/query'
+import { __query_result } from 'pareto-core-internals/dist/algorithm_types/query/query_result'
+
 //interface
 import * as resources from "pareto-resources/dist/interface/resources"
 
-export const $$: resources.queries.get_instream_data = _pq.__query((
+export const $$: resources.queries.get_instream_data = __query((
 ) => {
-    return _pq.__query_result((on_value) => {
+    return __query_result((on_value) => {
 
         const stdin = process.stdin;
         let data = '';

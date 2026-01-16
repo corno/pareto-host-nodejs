@@ -2,6 +2,9 @@ import * as _pq from 'pareto-core-query'
 
 import * as _pr from 'pareto-core-refiner'
 
+import { __query } from 'pareto-core-internals/dist/algorithm_types/query/query'
+import { __query_result } from 'pareto-core-internals/dist/algorithm_types/query/query_result'
+
 //interface
 import * as resources from "pareto-resources/dist/interface/resources"
 
@@ -11,10 +14,10 @@ import * as s_path from "pareto-resources/dist/implementation/manual/schemas/pat
 import * as t_path_to_path from "pareto-resources/dist/implementation/manual/schemas/path/transformers/path"
 
 
-export const $$: resources.queries.read_directory = _pq.__query((
+export const $$: resources.queries.read_directory = __query((
     $p
 ) => {
-    return _pq.__query_result((on_value, on_error) => {
+    return __query_result((on_value, on_error) => {
         fs_readdir(
             s_path.Node_Path($p.path),
             {

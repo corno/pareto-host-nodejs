@@ -1,6 +1,9 @@
 import * as _pc from 'pareto-core-command'
 import * as _p from 'pareto-core-internals/dist/literal'
 
+import { __command } from 'pareto-core-internals/dist/algorithm_types/command/command'
+import { __command_promise } from 'pareto-core-internals/dist/algorithm_types/command/command_promise'
+
 //interface
 import * as resources from "pareto-resources/dist/interface/resources"
 
@@ -12,11 +15,11 @@ import { spawn } from "node:child_process"
  * The executable being executed is assumed to only cause side effects
  * and not return any meaningful data, std::out is therefor ignored
  */
-export const $$: resources.commands.execute_any_command_executable = _pc.__command((
+export const $$: resources.commands.execute_any_command_executable = __command((
     $p,
 ) => {
     const args = $p.args.__get_raw_copy()
-    return _pc.__command_promise({
+    return __command_promise({
         'execute': (on_success, on_error) => {
 
             const child = spawn($p.program, args, {

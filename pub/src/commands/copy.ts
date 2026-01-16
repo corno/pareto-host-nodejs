@@ -1,6 +1,9 @@
 import * as _pc from 'pareto-core-command'
 import * as _pr from 'pareto-core-refiner'
 
+import { __command } from 'pareto-core-internals/dist/algorithm_types/command/command'
+import { __command_promise } from 'pareto-core-internals/dist/algorithm_types/command/command_promise'
+
 //interface
 import * as resources from "pareto-resources/dist/interface/resources"
 
@@ -8,15 +11,15 @@ import * as resources from "pareto-resources/dist/interface/resources"
 import { cp as fs_cp } from "fs"
 import * as s_path from "pareto-resources/dist/implementation/manual/schemas/path/serializers"
 
-export const $$: resources.commands.copy = _pc.__command((
+export const $$: resources.commands.copy = __command((
     $p,
 ) => {
-    return _pc.__command_promise({
+    return __command_promise({
         'execute': (on_success, on_error) => {
             const options: any = {}
-            $p.options.recursive.map(($) => { options.recursive = $ })
-            $p.options.force.map(($) => { options.force = $ })
-            $p.options.errorOnExist.map(($) => { options.errorOnExist = $ })
+            $p.options.recursive.__o_map(($) => { options.recursive = $ })
+            $p.options.force.__o_map(($) => { options.force = $ })
+            $p.options.errorOnExist.__o_map(($) => { options.errorOnExist = $ })
 
             fs_cp(
                 s_path.Node_Path($p.source),
