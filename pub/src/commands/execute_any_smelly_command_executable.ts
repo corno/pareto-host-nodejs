@@ -27,7 +27,8 @@ export const $$: resources.commands.execute_any_smelly_command_executable = __co
         'execute': (on_success, on_error) => {
 
             const child = spawn($p.program, args, {
-                shell: false, // ✅ direct execution, no shell
+                shell: false, // direct execution, no shell
+                stdio: ['pipe', 'pipe', 'pipe'], // explicitly pipe stdin, stdout, stderr
             })
 
             let stderrData = ""
