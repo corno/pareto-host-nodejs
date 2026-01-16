@@ -38,8 +38,12 @@ export const $$: resources.queries.execute_any_query_executable = __query(
 
             child.on("error", err => {
                 on_error(_pr.state_group.block(() => {
+                    if (!(err instanceof Error)) {
+                        throw new Error(`Expected an Error instance, got: ${typeof err}`)
+                    }
                     return ['failed to spawn', {
-                        message: _pq.list.literal( err instanceof Error ? err.message.split("\n") : [`${err}`] )
+                        message: err.message,
+                        'message as list': _pq.list.literal(err.message.split("\n"))
                     }]
                 }))
             })
@@ -47,13 +51,15 @@ export const $$: resources.queries.execute_any_query_executable = __query(
             child.on("close", exitCode => {
                 if (exitCode === 0) {
                     on_value({
-                        stdout: _pq.list.literal(stdoutData.split("\n")),
+                        'stdout': stdoutData,
+                        'stdout as list': _pq.list.literal(stdoutData.split("\n")),
                     })
                 } else {
                     on_error(_pr.state_group.block(() => {
                         return ['non zero exit code', {
                             'exit code': exitCode === null ? _pr.optional.not_set() : _pr.optional.set(exitCode),
-                            'stderr': _pq.list.literal(stderrData.split("\n")),
+                            'stderr as list': _pq.list.literal(stderrData.split("\n")),
+                            'stderr': stderrData,
                         }]
                     }))
                 }
