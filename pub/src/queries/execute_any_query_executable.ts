@@ -39,7 +39,7 @@ export const $$: resources.queries.execute_any_query_executable = __query(
             child.on("error", err => {
                 on_error(_pr.state_group.block(() => {
                     return ['failed to spawn', {
-                        message: err instanceof Error ? err.message : `${err}`
+                        message: _pq.list.literal( err instanceof Error ? err.message.split("\n") : [`${err}`] )
                     }]
                 }))
             })
@@ -47,13 +47,13 @@ export const $$: resources.queries.execute_any_query_executable = __query(
             child.on("close", exitCode => {
                 if (exitCode === 0) {
                     on_value({
-                        stdout: stdoutData,
+                        stdout: _pq.list.literal(stdoutData.split("\n")),
                     })
                 } else {
                     on_error(_pr.state_group.block(() => {
                         return ['non zero exit code', {
                             'exit code': exitCode === null ? _pr.optional.not_set() : _pr.optional.set(exitCode),
-                            'stderr': stderrData,
+                            'stderr': _pq.list.literal(stderrData.split("\n")),
                         }]
                     }))
                 }
