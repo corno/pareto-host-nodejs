@@ -4,8 +4,8 @@ import * as _pr from 'pareto-core-refiner'
 //interface
 import * as resources from "pareto-resources/dist/interface/resources"
 
-import { __command } from 'pareto-core-internals/dist/algorithm_types/command/command'
-import { __command_promise } from 'pareto-core-internals/dist/algorithm_types/command/command_promise'
+import { __command } from 'pareto-core-internals/dist/command/command'
+import { __command_promise } from 'pareto-core-internals/dist/command/command_promise'
 
 //dependencies
 import { mkdir as fs_mkdir } from "fs"

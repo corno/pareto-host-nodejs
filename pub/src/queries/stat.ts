@@ -1,8 +1,8 @@
 import * as _pq from 'pareto-core-query'
 import * as _pr from 'pareto-core-refiner'
 
-import { __query } from 'pareto-core-internals/dist/algorithm_types/query/query'
-import { __query_result } from 'pareto-core-internals/dist/algorithm_types/query/query_result'
+import { __query } from 'pareto-core-internals/dist/query/query'
+import { __query_result } from 'pareto-core-internals/dist/query/query_result'
 
 
 //interface
