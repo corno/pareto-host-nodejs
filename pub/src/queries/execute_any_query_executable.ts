@@ -9,6 +9,7 @@ import * as resources from "pareto-resources/dist/interface/resources"
 
 //dependencies
 import { spawn } from "node:child_process"
+import { Message } from '../terminal_output'
 
 
 /**
@@ -42,8 +43,7 @@ export const $$: resources.queries.execute_any_query_executable = __query(
                         throw new Error(`Expected an Error instance, got: ${typeof err}`)
                     }
                     return ['failed to spawn', {
-                        message: err.message,
-                        'message as list': _pq.list.literal(err.message.split("\n"))
+                        message: Message(err.message),
                     }]
                 }))
             })
@@ -51,15 +51,13 @@ export const $$: resources.queries.execute_any_query_executable = __query(
             child.on("close", exitCode => {
                 if (exitCode === 0) {
                     on_value({
-                        'stdout': stdoutData,
-                        'stdout as list': _pq.list.literal(stdoutData.split("\n")),
+                        'stdout': Message(stdoutData),
                     })
                 } else {
                     on_error(_pr.state_group.block(() => {
                         return ['non zero exit code', {
                             'exit code': exitCode === null ? _pr.optional.not_set() : _pr.optional.set(exitCode),
-                            'stderr as list': _pq.list.literal(stderrData.split("\n")),
-                            'stderr': stderrData,
+                            'stderr': Message(stderrData),
                         }]
                     }))
                 }

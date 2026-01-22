@@ -9,6 +9,7 @@ import * as resources from "pareto-resources/dist/interface/resources"
 
 //dependencies
 import { spawn } from "node:child_process"
+import { Message } from '../terminal_output'
 
 /**
  * 
@@ -33,7 +34,7 @@ export const $$: resources.commands.execute_any_command_executable = __command((
             })
 
             child.on("error", err => {
-                on_error(['failed to spawn', { message: _p.list.literal( err instanceof Error ? err.message.split("\n") : [`${err}`] ) }])
+                on_error(['failed to spawn', { message: Message(err.message) }])
             })
 
             child.on("close", exitCode => {
@@ -42,7 +43,7 @@ export const $$: resources.commands.execute_any_command_executable = __command((
                 } else {
                     on_error(['non zero exit code', {
                         'exit code': exitCode === null ? _p.optional.not_set() : _p.optional.set(exitCode),
-                        'stderr': _p.list.literal(stderrData.split("\n")),
+                        'stderr': Message(stderrData),
                     }])
                 }
             })

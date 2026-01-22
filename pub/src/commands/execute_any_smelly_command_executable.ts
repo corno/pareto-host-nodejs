@@ -10,6 +10,7 @@ import * as resources from "pareto-resources/dist/interface/resources"
 
 //dependencies
 import { spawn } from "node:child_process"
+import { Message } from '../terminal_output'
 
 // import { Signature } from "pareto-resources/dist/interface/algorithms/commands/execute_smelly_procedure_executable"
 
@@ -44,7 +45,7 @@ export const $$: resources.commands.execute_any_smelly_command_executable = __co
             })
 
             child.on("error", err => {
-                on_error(['failed to spawn', { message: _p.list.literal(err instanceof Error ? err.message.split("\n") : [`${err}`]) }])
+                on_error(['failed to spawn', { message: Message(err.message) }])
             })
 
             child.on("close", exitCode => {
@@ -55,8 +56,8 @@ export const $$: resources.commands.execute_any_smelly_command_executable = __co
                 } else {
                     on_error(['non zero exit code', {
                         'exit code': exitCode === null ? _p.optional.not_set() : _p.optional.set(exitCode),
-                        'stderr': _p.list.literal(stderrData.split("\n")),
-                        'stdout': _p.list.literal(stdoutData.split("\n")),
+                        'stderr': Message(stderrData),
+                        'stdout': Message(stdoutData),
                     }])
                 }
             })
