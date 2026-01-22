@@ -1,4 +1,4 @@
-import * as _pi from 'pareto-core-interface'
+import * as _pi from 'pareto-core/dist/interface'
 
 import * as d_copy from "pareto-resources/dist/interface/generated/pareto/schemas/copy/data"
 import * as d_execute_any_command_executable from "pareto-resources/dist/interface/generated/pareto/schemas/execute_any_command_executable/data"

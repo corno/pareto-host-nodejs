@@ -1,9 +1,9 @@
-import * as _pc from 'pareto-core-command'
+import * as _pc from 'pareto-core/dist/command'
 
-import * as _p from 'pareto-core-internals/dist/__internals/sync/expression/initialize'
+import * as _p from 'pareto-core/dist/__internals/sync/expression/initialize'
 
-import { __command } from 'pareto-core-internals/dist/command/command'
-import { __command_promise } from 'pareto-core-internals/dist/command/command_promise'
+import { __command } from 'pareto-core/dist/command/command'
+import { __command_promise } from 'pareto-core/dist/command/command_promise'
 
 //interface
 import * as resources from "pareto-resources/dist/interface/resources"
