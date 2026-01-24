@@ -27,7 +27,7 @@ export const $$: resources.commands.copy = __command((
                 options,
                 (err) => {
                     if (err) {
-                        on_error(_pr.state_group.block(() => {
+                        on_error(_pr.state.block(() => {
                             if (err.code === 'ENOENT') {
                                 return ['source does not exist', null]
                             }

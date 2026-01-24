@@ -24,7 +24,7 @@ export const $$: resources.commands.write_file = __command((
                 },
                 (err, path) => {
                     if (err) {
-                        on_error(_pr.state_group.block(() => {
+                        on_error(_pr.state.block(() => {
                             if (err.code === 'EACCES' || err.code === 'EPERM') {
                                 return ['permission denied', null]
                             }
@@ -37,7 +37,7 @@ export const $$: resources.commands.write_file = __command((
                         $p.data,
                         (err) => {
                             if (err) {
-                                on_error(_pr.state_group.block(() => {
+                                on_error(_pr.state.block(() => {
                                     if (err.code === 'EACCES' || err.code === 'EPERM') {
                                         return ['permission denied', null]
                                     }

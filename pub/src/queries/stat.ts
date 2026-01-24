@@ -20,7 +20,7 @@ export const $$: resources.queries.stat = __query((
                 s_path.Node_Path($p),
             (err, stats) => {
                 if (err) {
-                    on_error(_pr.state_group.block(() => {
+                    on_error(_pr.state.block(() => {
                         if (err.code === 'ENOENT') {
                             return ['node does not exist', null]
                         }

@@ -23,7 +23,7 @@ export const $$: resources.commands.make_directory = __command((
                 },
                 (err, path) => {
                     if (err) {
-                        on_error(_pr.state_group.block(() => {
+                        on_error(_pr.state.block(() => {
                             if (err.code === 'EEXIST') {
                                 return ['directory already exists', null]
                             }

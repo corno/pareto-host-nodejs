@@ -20,7 +20,7 @@ export const $$: resources.queries.read_file = __query((
             { 'encoding': 'utf-8' },
             (err, data) => {
                 if (err) {
-                    on_error(_pr.state_group.block(() => {
+                    on_error(_pr.state.block(() => {
                         if (err.code === 'ENOENT') {
                             return ['file does not exist', null]
                         }

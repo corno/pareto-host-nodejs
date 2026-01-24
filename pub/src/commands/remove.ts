@@ -28,7 +28,7 @@ export const $$: resources.commands.remove = __command((
                         if (err.code === 'ENOENT' && !$p['error if not exists']) {
                             on_success()
                         } else {
-                            on_error(_pr.state_group.block(() => {
+                            on_error(_pr.state.block(() => {
                                 if (err.code === 'ENOENT') {
                                     return ['node does not exist', null]
                                 }

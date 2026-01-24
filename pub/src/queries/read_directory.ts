@@ -26,7 +26,7 @@ export const $$: resources.queries.read_directory = __query((
             },
             (err, files) => {
                 if (err) {
-                    on_error(_pr.state_group.block(() => {
+                    on_error(_pr.state.block(() => {
                         if (err.code === 'ENOENT') {
                             return ['directory does not exist', null]
                         }

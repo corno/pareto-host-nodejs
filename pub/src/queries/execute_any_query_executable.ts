@@ -38,7 +38,7 @@ export const $$: resources.queries.execute_any_query_executable = __query(
             })
 
             child.on("error", err => {
-                on_error(_pr.state_group.block(() => {
+                on_error(_pr.state.block(() => {
                     if (!(err instanceof Error)) {
                         throw new Error(`Expected an Error instance, got: ${typeof err}`)
                     }
@@ -54,7 +54,7 @@ export const $$: resources.queries.execute_any_query_executable = __query(
                         'stdout': Message(stdoutData),
                     })
                 } else {
-                    on_error(_pr.state_group.block(() => {
+                    on_error(_pr.state.block(() => {
                         return ['non zero exit code', {
                             'exit code': exitCode === null ? _pr.optional.not_set() : _pr.optional.set(exitCode),
                             'stderr': Message(stderrData),
