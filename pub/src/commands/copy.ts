@@ -43,7 +43,7 @@ export const $$: resources.commands.copy = __command((
                             if (err.code === 'EIO' || err.code === 'ENXIO') {
                                 return ['device not ready', null]
                             }
-                            return _pr.fixme_abort(`unhandled fs.cp error code: ${err.code}`)
+                            throw new Error(`unhandled fs.cp error code: ${err.code}`)
                         }))
                     } else {
                         on_success()

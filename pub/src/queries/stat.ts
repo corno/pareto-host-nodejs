@@ -24,7 +24,7 @@ export const $$: resources.queries.stat = __query((
                         if (err.code === 'ENOENT') {
                             return ['node does not exist', null]
                         }
-                        return _pr.fixme_abort(`unhandled fs.stat error code: ${err.code}`)
+                        throw new Error(`unhandled fs.stat error code: ${err.code}`)
                     }))
                 }
                 on_value(stats.isFile()

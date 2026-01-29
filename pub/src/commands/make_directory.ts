@@ -27,7 +27,7 @@ export const $$: resources.commands.make_directory = __command((
                             if (err.code === 'EEXIST') {
                                 return ['directory already exists', null]
                             }
-                            return _pr.fixme_abort(`unhandled fs.mkdir error code: ${err.code}`)
+                            throw new Error(`unhandled fs.mkdir error code: ${err.code}`)
                         }))
                     } else {
                         on_success()

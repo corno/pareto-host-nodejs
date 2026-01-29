@@ -1,9 +1,10 @@
 import * as _pq from 'pareto-core/dist/query'
-
 import * as _pr from 'pareto-core/dist/refiner'
+import { _p_unreachable_code_path } from 'pareto-core/dist/unreachable_code_path'
 
 import { __query } from 'pareto-core/dist/__internals/async/query'
 import { __query_result } from 'pareto-core/dist/__internals/async/query_result'
+
 
 //interface
 import * as resources from "pareto-resources/dist/interface/resources"
@@ -33,7 +34,7 @@ export const $$: resources.queries.read_directory = __query((
                         if (err.code === 'ENOTDIR' || err.code === 'EISDIR') {
                             return ['node is not a directory', null]
                         }
-                        return _pr.fixme_abort(`unhandled fs.readdir error code: ${err.code}`)
+                        throw new Error(`unhandled fs.readdir error code: ${err.code}`)
                     }))
                 } else {
                     on_value(
@@ -52,7 +53,7 @@ export const $$: resources.queries.read_directory = __query((
                                     }
                                 )
                             }),
-                            _pr.unreachable_code_path(),
+                            ($) => _p_unreachable_code_path(),
                         )
                     )
                 }

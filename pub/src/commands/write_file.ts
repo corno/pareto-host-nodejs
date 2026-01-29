@@ -28,7 +28,7 @@ export const $$: resources.commands.write_file = __command((
                             if (err.code === 'EACCES' || err.code === 'EPERM') {
                                 return ['permission denied', null]
                             }
-                            return _pr.fixme_abort(`unhandled fs.writeFile error code: ${err.code}`)
+                            throw new Error(`unhandled fs.writeFile error code: ${err.code}`)
                         }))
                         return
                     }
@@ -41,7 +41,7 @@ export const $$: resources.commands.write_file = __command((
                                     if (err.code === 'EACCES' || err.code === 'EPERM') {
                                         return ['permission denied', null]
                                     }
-                                    return _pr.fixme_abort(`unhandled fs.writeFile error code: ${err.code}`)
+                                    throw new Error(`unhandled fs.writeFile error code: ${err.code}`)
                                 }))
                             } else {
                                 on_success()

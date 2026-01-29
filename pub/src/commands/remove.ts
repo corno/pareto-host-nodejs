@@ -41,7 +41,7 @@ export const $$: resources.commands.remove = __command((
                                 // if (err.code === 'ERR_FS_EISDIR') {
                                 //     return ['node is a directory', null]
                                 // }
-                                return _pr.fixme_abort(`unhandled fs.rm error code: ${err.code}`)
+                                throw new Error(`unhandled fs.rm error code: ${err.code}`)
                             }))
                         }
                     } else {

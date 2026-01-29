@@ -36,7 +36,7 @@ export const $$: resources.queries.read_file = __query((
                         if (err.code === 'EIO' || err.code === 'ENXIO') {
                             return ['device not ready', null]
                         }
-                        return _pr.fixme_abort(`unhandled fs.readFile error code: ${err.code}`)
+                        throw new Error(`unhandled fs.readFile error code: ${err.code}`)
                     }))
                 } else {
                     on_value(data)
