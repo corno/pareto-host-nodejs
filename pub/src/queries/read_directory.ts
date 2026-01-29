@@ -37,24 +37,22 @@ export const $$: resources.queries.read_directory = __query((
                     }))
                 } else {
                     on_value(
-                        _pr.deprecated_build_dictionary(
-                            ($i) => {
-                                files.forEach((node) => {
-                                    $i['add entry'](node.name, {
-                                        'node type': node.isFile()
-                                            ? ['file', null]
-                                            : node.isDirectory() ? ['directory', null] : ['other', null],
-                                        'context directory': t_path_to_path.deprecated_node_path_to_context_path($p.path),
-                                        'path': t_path_to_path.extend_node_path(
-                                            $p.path,
-                                            {
-                                                'addition': node.name,
-                                            }
-                                        )
-                                    })
-                                })
-                            },
-                            // () => _pinternals.panic(`unreachable`)
+                        _pr.dictionary.from_list(
+                            _pr.list.literal(files),
+                            ($) => $.name,
+                            ($) => ({
+                                'node type': $.isFile()
+                                    ? ['file', null]
+                                    : $.isDirectory() ? ['directory', null] : ['other', null],
+                                'context directory': t_path_to_path.deprecated_node_path_to_context_path($p.path),
+                                'path': t_path_to_path.extend_node_path(
+                                    $p.path,
+                                    {
+                                        'addition': $.name,
+                                    }
+                                )
+                            }),
+                            _pr.unreachable_code_path(),
                         )
                     )
                 }
