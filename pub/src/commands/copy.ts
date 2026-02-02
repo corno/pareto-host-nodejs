@@ -17,18 +17,15 @@ export const $$: resources.commands.copy = __command((
     return __command_promise({
         'execute': (on_success, on_error) => {
             const options: any = {}
-            $p.options.recursive.__decide(
-                ($) => { options.recursive = $ },
-                () => {}
-            )
-            $p.options.force.__decide(
-                ($) => { options.force = $ },
-                () => {}
-            )
-            $p.options.errorOnExist.__decide(
-                ($) => { options.errorOnExist = $ },
-                () => {}
-            )
+            if ($p.options.recursive) {
+                options.recursive = true
+            }
+            if ($p.options.force) {
+                options.force = true
+            }
+            if ($p.options.errorOnExist) {
+                options.errorOnExist = true
+            }
 
             fs_cp(
                 s_path.Node_Path($p.source),
