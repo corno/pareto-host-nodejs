@@ -9,7 +9,7 @@ import { __command_promise } from 'pareto-core/dist/__internals/async/command_pr
 
 //dependencies
 import { mkdir as fs_mkdir } from "fs"
-import * as s_path from "pareto-resources/dist/implementation/manual/schemas/path/serializers"
+import * as t_path_to_text from "../path_to_text"
 
 export const $$: resources.commands.make_directory = __command((
     $p,
@@ -17,7 +17,7 @@ export const $$: resources.commands.make_directory = __command((
     return __command_promise({
         'execute': (on_success, on_error) => {
             fs_mkdir(
-                s_path.Node_Path($p),
+                t_path_to_text.Node_Path($p),
                 {
                     'recursive': true,
                 },

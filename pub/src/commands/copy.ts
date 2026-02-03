@@ -4,12 +4,14 @@ import * as _p from 'pareto-core/dist/expression'
 import { __command } from 'pareto-core/dist/__internals/async/command'
 import { __command_promise } from 'pareto-core/dist/__internals/async/command_promise'
 
+import _p_text_from_list from "pareto-core/dist/_p_text_from_list"
+
 //interface
 import * as resources from "pareto-resources/dist/interface/resources"
 
 //dependencies
 import { cp as fs_cp } from "fs"
-import * as s_path from "pareto-resources/dist/implementation/manual/schemas/path/serializers"
+import * as t_path_to_text from "../path_to_text"
 
 export const $$: resources.commands.copy = __command((
     $p,
@@ -28,8 +30,8 @@ export const $$: resources.commands.copy = __command((
             }
 
             fs_cp(
-                s_path.Node_Path($p.source),
-                s_path.Node_Path($p.target),
+                t_path_to_text.Node_Path($p.source),
+                t_path_to_text.Node_Path($p.target),
                 options,
                 (err) => {
                     if (err) {

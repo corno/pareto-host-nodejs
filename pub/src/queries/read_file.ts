@@ -8,7 +8,7 @@ import { __query_result } from 'pareto-core/dist/__internals/async/__query_resul
 import * as resources from "pareto-resources/dist/interface/resources"
 
 //dependencies
-import * as s_path from "pareto-resources/dist/implementation/manual/schemas/path/serializers"
+import * as t_path_to_text from "../path_to_text"
 import { readFile as fs_readFile } from "fs"
 
 export const $$: resources.queries.read_file = __query((
@@ -16,7 +16,7 @@ export const $$: resources.queries.read_file = __query((
 ) => {
     return __query_result((on_value, on_error) => {
         fs_readFile(
-            s_path.Node_Path($p),
+            t_path_to_text.Node_Path($p),
             { 'encoding': 'utf-8' },
             (err, data) => {
                 if (err) {

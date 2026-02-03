@@ -9,7 +9,7 @@ import * as resources from "pareto-resources/dist/interface/resources"
 
 //dependencies
 import { rm as fs_rm } from "fs"
-import * as s_path from "pareto-resources/dist/implementation/manual/schemas/path/serializers"
+import * as t_path_to_text from "../path_to_text"
 
 
 export const $$: resources.commands.remove = __command((
@@ -18,7 +18,7 @@ export const $$: resources.commands.remove = __command((
     return __command_promise({
         'execute': (on_success, on_error) => {
             fs_rm(
-                s_path.Node_Path($p.path),
+                t_path_to_text.Node_Path($p.path),
                 {
                     'recursive': true,
                 },

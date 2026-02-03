@@ -10,14 +10,14 @@ import * as resources from "pareto-resources/dist/interface/resources"
 
 //dependencies
 import { stat as fs_stat } from "fs"
-import * as s_path from "pareto-resources/dist/implementation/manual/schemas/path/serializers"
+import * as t_path_to_text from "../path_to_text"
 
 export const $$: resources.queries.stat = __query((
     $p
 ) => {
     return __query_result((on_value, on_error) => {
         fs_stat(
-                s_path.Node_Path($p),
+                t_path_to_text.Node_Path($p),
             (err, stats) => {
                 if (err) {
                     on_error(_p.state.block(() => {

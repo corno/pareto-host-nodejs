@@ -9,7 +9,7 @@ import * as resources from "pareto-resources/dist/interface/resources"
 
 //dependencies
 import { mkdir as fs_mkdir, writeFile as fs_writeFile } from "fs"
-import * as s_path from "pareto-resources/dist/implementation/manual/schemas/path/serializers"
+import * as t_path_to_text from "../path_to_text"
 
 export const $$: resources.commands.write_file = __command((
     $p,
@@ -18,7 +18,7 @@ export const $$: resources.commands.write_file = __command((
         'execute': (on_success, on_error) => {
 
             fs_mkdir(
-                s_path.Context_Path($p.path.context),
+                t_path_to_text.Context_Path($p.path.context),
                 {
                     'recursive': true
                 },
@@ -33,7 +33,7 @@ export const $$: resources.commands.write_file = __command((
                         return
                     }
                     fs_writeFile(
-                        s_path.Node_Path($p.path),
+                        t_path_to_text.Node_Path($p.path),
                         $p.data,
                         (err) => {
                             if (err) {
