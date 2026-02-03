@@ -1,6 +1,6 @@
 import * as _pc from 'pareto-core/dist/command'
 
-import * as _p from 'pareto-core/dist/__internals/sync/expression/initialize'
+import * as _p from 'pareto-core/dist/expression'
 
 import { __command } from 'pareto-core/dist/__internals/async/command'
 import { __command_promise } from 'pareto-core/dist/__internals/async/command_promise'

@@ -1,5 +1,5 @@
 import * as _pc from 'pareto-core/dist/command'
-import * as _pr from 'pareto-core/dist/refiner'
+import * as _p from 'pareto-core/dist/expression'
 
 import { __command } from 'pareto-core/dist/__internals/async/command'
 import { __command_promise } from 'pareto-core/dist/__internals/async/command_promise'
@@ -24,7 +24,7 @@ export const $$: resources.commands.write_file = __command((
                 },
                 (err, path) => {
                     if (err) {
-                        on_error(_pr.state.block(() => {
+                        on_error(_p.state.block(() => {
                             if (err.code === 'EACCES' || err.code === 'EPERM') {
                                 return ['permission denied', null]
                             }
@@ -37,7 +37,7 @@ export const $$: resources.commands.write_file = __command((
                         $p.data,
                         (err) => {
                             if (err) {
-                                on_error(_pr.state.block(() => {
+                                on_error(_p.state.block(() => {
                                     if (err.code === 'EACCES' || err.code === 'EPERM') {
                                         return ['permission denied', null]
                                     }

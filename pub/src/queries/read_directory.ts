@@ -1,9 +1,9 @@
 import * as _pq from 'pareto-core/dist/query'
-import * as _pr from 'pareto-core/dist/refiner'
-import { _p_unreachable_code_path } from 'pareto-core/dist/unreachable_code_path'
+import * as _p from 'pareto-core/dist/expression'
+import _p_unreachable_code_path from 'pareto-core/dist/_p_unreachable_code_path'
 
 import { __query } from 'pareto-core/dist/__internals/async/query'
-import { __query_result } from 'pareto-core/dist/__internals/async/query_result'
+import { __query_result } from 'pareto-core/dist/__internals/async/__query_result'
 
 
 //interface
@@ -27,7 +27,7 @@ export const $$: resources.queries.read_directory = __query((
             },
             (err, files) => {
                 if (err) {
-                    on_error(_pr.state.block(() => {
+                    on_error(_p.state.block(() => {
                         if (err.code === 'ENOENT') {
                             return ['directory does not exist', null]
                         }
@@ -38,8 +38,8 @@ export const $$: resources.queries.read_directory = __query((
                     }))
                 } else {
                     on_value(
-                        _pr.dictionary.from_list(
-                            _pr.list.literal(files),
+                        _p.dictionary.from_list(
+                            _p.list.literal(files),
                             ($) => $.name,
                             ($) => ({
                                 'node type': $.isFile()

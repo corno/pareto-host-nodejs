@@ -1,5 +1,5 @@
 import * as _pi from 'pareto-core/dist/interface'
-import * as _pr from 'pareto-core/dist/refiner'
+import * as _p from 'pareto-core/dist/expression'
 
 import { signature } from './signature'
 
@@ -53,7 +53,7 @@ export const run_main_command: signature = (
         }
     }).execute(
         {
-            'arguments': _pr.list.literal(process.argv.slice(2))
+            'arguments': _p.list.literal(process.argv.slice(2))
         },
         ($) => $,
     ).__start(

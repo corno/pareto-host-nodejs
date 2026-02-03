@@ -1,8 +1,8 @@
 import * as _pq from 'pareto-core/dist/query'
-import * as _pr from 'pareto-core/dist/refiner'
+import * as _p from 'pareto-core/dist/expression'
 
 import { __query } from 'pareto-core/dist/__internals/async/query'
-import { __query_result } from 'pareto-core/dist/__internals/async/query_result'
+import { __query_result } from 'pareto-core/dist/__internals/async/__query_result'
 
 //interface
 import * as resources from "pareto-resources/dist/interface/resources"
@@ -20,7 +20,7 @@ export const $$: resources.queries.read_file = __query((
             { 'encoding': 'utf-8' },
             (err, data) => {
                 if (err) {
-                    on_error(_pr.state.block(() => {
+                    on_error(_p.state.block(() => {
                         if (err.code === 'ENOENT') {
                             return ['file does not exist', null]
                         }

@@ -1,8 +1,8 @@
 import * as _pq from 'pareto-core/dist/query'
-import * as _pr from 'pareto-core/dist/refiner'
+import * as _p from 'pareto-core/dist/expression'
 
 import { __query } from 'pareto-core/dist/__internals/async/query'
-import { __query_result } from 'pareto-core/dist/__internals/async/query_result'
+import { __query_result } from 'pareto-core/dist/__internals/async/__query_result'
 
 //interface
 import * as resources from "pareto-resources/dist/interface/resources"
@@ -38,7 +38,7 @@ export const $$: resources.queries.execute_any_query_executable = __query(
             })
 
             child.on("error", err => {
-                on_error(_pr.state.block(() => {
+                on_error(_p.state.block(() => {
                     if (!(err instanceof Error)) {
                         throw new Error(`Expected an Error instance, got: ${typeof err}`)
                     }
@@ -54,9 +54,9 @@ export const $$: resources.queries.execute_any_query_executable = __query(
                         'stdout': Message(stdoutData),
                     })
                 } else {
-                    on_error(_pr.state.block(() => {
+                    on_error(_p.state.block(() => {
                         return ['non zero exit code', {
-                            'exit code': exitCode === null ? _pr.optional.not_set() : _pr.optional.set(exitCode),
+                            'exit code': exitCode === null ? _p.optional.not_set() : _p.optional.set(exitCode),
                             'stderr': Message(stderrData),
                         }]
                     }))

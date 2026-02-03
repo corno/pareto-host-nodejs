@@ -1,8 +1,8 @@
 import * as _pq from 'pareto-core/dist/query'
-import * as _pr from 'pareto-core/dist/refiner'
+import * as _p from 'pareto-core/dist/expression'
 
 import { __query } from 'pareto-core/dist/__internals/async/query'
-import { __query_result } from 'pareto-core/dist/__internals/async/query_result'
+import { __query_result } from 'pareto-core/dist/__internals/async/__query_result'
 
 
 //interface
@@ -20,7 +20,7 @@ export const $$: resources.queries.stat = __query((
                 s_path.Node_Path($p),
             (err, stats) => {
                 if (err) {
-                    on_error(_pr.state.block(() => {
+                    on_error(_p.state.block(() => {
                         if (err.code === 'ENOENT') {
                             return ['node does not exist', null]
                         }

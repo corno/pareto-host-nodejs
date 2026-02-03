@@ -1,5 +1,5 @@
 import * as _pc from 'pareto-core/dist/command'
-import * as _pr from 'pareto-core/dist/refiner'
+import * as _p from 'pareto-core/dist/expression'
 
 //interface
 import * as resources from "pareto-resources/dist/interface/resources"
@@ -23,7 +23,7 @@ export const $$: resources.commands.make_directory = __command((
                 },
                 (err, path) => {
                     if (err) {
-                        on_error(_pr.state.block(() => {
+                        on_error(_p.state.block(() => {
                             if (err.code === 'EEXIST') {
                                 return ['directory already exists', null]
                             }

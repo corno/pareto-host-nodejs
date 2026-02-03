@@ -1,5 +1,5 @@
 import * as _pc from 'pareto-core/dist/command'
-import * as _pr from 'pareto-core/dist/refiner'
+import * as _p from 'pareto-core/dist/expression'
 
 import { __command } from 'pareto-core/dist/__internals/async/command'
 import { __command_promise } from 'pareto-core/dist/__internals/async/command_promise'
@@ -33,7 +33,7 @@ export const $$: resources.commands.copy = __command((
                 options,
                 (err) => {
                     if (err) {
-                        on_error(_pr.state.block(() => {
+                        on_error(_p.state.block(() => {
                             if (err.code === 'ENOENT') {
                                 return ['source does not exist', null]
                             }
