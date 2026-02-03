@@ -11,7 +11,7 @@ export const $$: resources.commands.log_error = __command((
 ) => {
     return __command_promise({
         'execute': (on_success) => {
-            $p.lines.__for_each(($) => {
+            $p.lines.__get_raw_copy().forEach(($) => {
                 process.stderr.write($ + `\n`)
             })
             on_success()
