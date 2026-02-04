@@ -17,8 +17,8 @@ export const $$: resources.commands.log = __command((
         'execute': (on_success) => {
             process.stdout.write(
                 _p_text_from_list(
-                    t_fp_to_text.Block_Part(
-                        $p.messsage,
+                    t_fp_to_text.Group(
+                        $p.message,
                         {
                             'indentation': '    ',
                             'newline': '\n',
