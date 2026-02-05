@@ -1,5 +1,6 @@
 import * as _pq from 'pareto-core/dist/query'
 import * as _p from 'pareto-core/dist/expression'
+import _p_list_from_text from 'pareto-core/dist/_p_list_from_text'
 
 import { __query } from 'pareto-core/dist/__internals/async/query'
 import { __query_result } from 'pareto-core/dist/__internals/async/__query_result'
@@ -39,7 +40,10 @@ export const $$: resources.queries.read_file = __query((
                         throw new Error(`unhandled fs.readFile error code: ${err.code}`)
                     }))
                 } else {
-                    on_value(data)
+                    on_value(_p_list_from_text(
+                        data,
+                        ($) => $
+                    ))
                 }
             }
         )

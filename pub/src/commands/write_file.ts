@@ -1,5 +1,6 @@
 import * as _pc from 'pareto-core/dist/command'
 import * as _p from 'pareto-core/dist/expression'
+import  _p_text_from_list from 'pareto-core/dist/_p_text_from_list'
 
 import { __command } from 'pareto-core/dist/__internals/async/command'
 import { __command_promise } from 'pareto-core/dist/__internals/async/command_promise'
@@ -34,7 +35,7 @@ export const $$: resources.commands.write_file = __command((
                     }
                     fs_writeFile(
                         t_path_to_text.Node_Path($p.path),
-                        $p.data,
+                        _p_text_from_list($p.data, ($) => $),
                         (err) => {
                             if (err) {
                                 on_error(_p.state.block(() => {
