@@ -1,5 +1,5 @@
 import * as _pq from 'pareto-core/dist/query'
-import * as _p from 'pareto-core/dist/expression'
+import * as _p from 'pareto-core/dist/assign'
 import _p_list_from_text from 'pareto-core/dist/_p_list_from_text'
 
 import { __query } from 'pareto-core/dist/__internals/async/query'

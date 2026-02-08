@@ -1,11 +1,18 @@
 import * as _pi from 'pareto-core/dist/interface'
-import * as _p from 'pareto-core/dist/expression'
+import * as _p from 'pareto-core/dist/assign'
 
 import * as d_terminal_output from "pareto-resources/dist/interface/generated/liana/schemas/terminal_output/data"
+
+//shorthands
+import * as sh from "pareto-fountain-pen/dist/shorthands/block"
 
 export const Message = ($: string): d_terminal_output.Message => {
     return {
         'raw': $,
-        'lines': _p.list.literal($.split("\n")),
+        'paragraph': sh.pg.sentences(
+            _p.list.literal($.split("\n")).__l_map(($) => sh.sentence([
+                sh.ph.literal($)
+            ]))
+        ),
     }
 }

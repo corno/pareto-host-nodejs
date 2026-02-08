@@ -1,5 +1,5 @@
 import * as _pq from 'pareto-core/dist/query'
-import * as _p from 'pareto-core/dist/expression'
+import * as _p from 'pareto-core/dist/assign'
 
 import { __query } from 'pareto-core/dist/__internals/async/query'
 import { __query_result } from 'pareto-core/dist/__internals/async/__query_result'
@@ -56,7 +56,7 @@ export const $$: resources.queries.execute_any_query_executable = __query(
                 } else {
                     on_error(_p.state.block(() => {
                         return ['non zero exit code', {
-                            'exit code': exitCode === null ? _p.optional.not_set() : _p.optional.set(exitCode),
+                            'exit code': exitCode === null ? _p.optional.literal.not_set() : _p.optional.literal.set(exitCode),
                             'stderr': Message(stderrData),
                         }]
                     }))

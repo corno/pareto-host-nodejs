@@ -1,5 +1,5 @@
 import * as _pq from 'pareto-core/dist/query'
-import * as _p from 'pareto-core/dist/expression'
+import * as _p from 'pareto-core/dist/assign'
 import _p_unreachable_code_path from 'pareto-core/dist/_p_unreachable_code_path'
 
 import { __query } from 'pareto-core/dist/__internals/async/query'
@@ -25,7 +25,7 @@ export const $$: resources.queries.read_directory = __query((
                 'encoding': 'utf-8',
                 'withFileTypes': true,
             },
-            (err, files) => {
+            (err, nodes) => {
                 if (err) {
                     on_error(_p.state.block(() => {
                         if (err.code === 'ENOENT') {
@@ -38,8 +38,9 @@ export const $$: resources.queries.read_directory = __query((
                     }))
                 } else {
                     on_value(
-                        _p.dictionary.from_list(
-                            _p.list.literal(files),
+                        _p.dictionary.from.list(
+                            _p.list.literal(nodes),
+                        ).convert(
                             ($) => $.name,
                             ($) => ({
                                 'node type': $.isFile()
@@ -53,7 +54,7 @@ export const $$: resources.queries.read_directory = __query((
                                     }
                                 )
                             }),
-                            ($) => _p_unreachable_code_path(),
+                            ($) => _p_unreachable_code_path("the nodejs api guarantees that all items will have a unique name"),
                         )
                     )
                 }

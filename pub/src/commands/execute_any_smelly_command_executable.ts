@@ -1,6 +1,6 @@
 import * as _pc from 'pareto-core/dist/command'
 
-import * as _p from 'pareto-core/dist/expression'
+import * as _p from 'pareto-core/dist/assign'
 
 import { __command } from 'pareto-core/dist/__internals/async/command'
 import { __command_promise } from 'pareto-core/dist/__internals/async/command_promise'
@@ -55,7 +55,7 @@ export const $$: resources.commands.execute_any_smelly_command_executable = __co
                     on_success()
                 } else {
                     on_error(['non zero exit code', {
-                        'exit code': exitCode === null ? _p.optional.not_set() : _p.optional.set(exitCode),
+                        'exit code': exitCode === null ? _p.optional.literal.not_set() : _p.optional.literal.set(exitCode),
                         'stderr': Message(stderrData),
                         'stdout': Message(stdoutData),
                     }])

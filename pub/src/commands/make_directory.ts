@@ -1,5 +1,5 @@
 import * as _pc from 'pareto-core/dist/command'
-import * as _p from 'pareto-core/dist/expression'
+import * as _p from 'pareto-core/dist/assign'
 
 //interface
 import * as resources from "pareto-resources/dist/interface/resources"

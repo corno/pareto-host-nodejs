@@ -1,6 +1,6 @@
 {
   "name": "pareto-host-nodejs",
-  "version": "0.2.21",
+  "version": "0.2.23",
   "license": "ISC",
   "description": "the exupery core package for creating a main function in a nodejs host environment",
   "author": "Corno",
@@ -18,8 +18,8 @@
     "dist"
   ],
   "dependencies": {
-    "pareto-fountain-pen": "^0.4.18",
-    "pareto-resources": "^0.2.33"
+    "pareto-fountain-pen": "^0.4.22",
+    "pareto-resources": "^0.2.34"
   },
   "repository": {
     "type": "git",
