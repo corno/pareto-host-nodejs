@@ -54,7 +54,9 @@ export const $$: resources.queries.read_directory = __query((
                                     }
                                 )
                             }),
-                            ($) => _p_unreachable_code_path("the nodejs api guarantees that all items will have a unique name"),
+                            {
+                                duplicate_id: ($) => _p_unreachable_code_path("the nodejs api guarantees that all items will have a unique name")
+                            },
                         )
                     )
                 }
