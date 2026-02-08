@@ -18,8 +18,8 @@
     "dist"
   ],
   "dependencies": {
-    "pareto-fountain-pen": "^0.4.22",
-    "pareto-resources": "^0.2.34"
+    "pareto-fountain-pen": "^0.4.37",
+    "pareto-resources": "^0.2.42"
   },
   "repository": {
     "type": "git",
