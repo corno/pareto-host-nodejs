@@ -9,10 +9,7 @@ import * as sh from "pareto-fountain-pen/dist/shorthands/block"
 export const Message = ($: string): d_terminal_output.Message => {
     return {
         'raw': $,
-        'paragraph': sh.pg.sentences(
-            _p.list.literal($.split("\n")).__l_map(($) => sh.sentence([
-                sh.ph.literal($)
-            ]))
-        ),
+        'lines': _p.list.literal($.split("\n")),
+
     }
 }
