@@ -7,7 +7,7 @@ import { __command_promise } from 'pareto-core/dist/__internals/async/command_pr
 import * as resources from "pareto-resources/dist/interface/resources"
 
 //dependencies
-import * as t_fp_to_list_of_characters from "pareto-fountain-pen/dist/implementation/manual/schemas/block/transformers/list_of_characters"
+import * as t_fp_to_list_of_characters from "pareto-fountain-pen/dist/implementation/manual/schemas/prose/transformers/list_of_characters"
 
 export const $$: resources.commands.log_error = __command((
     $p,
