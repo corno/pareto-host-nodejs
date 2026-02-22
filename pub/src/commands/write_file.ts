@@ -1,6 +1,6 @@
 import * as _pc from 'pareto-core/dist/command'
 import * as _p from 'pareto-core/dist/assign'
-import  _p_text_from_list from 'pareto-core/dist/_p_text_from_list'
+import _p_text_from_list from 'pareto-core/dist/_p_text_from_list'
 
 import { __command } from 'pareto-core/dist/__internals/async/command'
 import { __command_promise } from 'pareto-core/dist/__internals/async/command_promise'
@@ -25,12 +25,15 @@ export const $$: resources.commands.write_file = __command((
                 },
                 (err, path) => {
                     if (err) {
-                        on_error(_p.state.block(() => {
-                            if (err.code === 'EACCES' || err.code === 'EPERM') {
-                                return ['permission denied', null]
-                            }
-                            throw new Error(`unhandled fs.writeFile error code: ${err.code}`)
-                        }))
+                        on_error({
+                            'path': $p.path,
+                            'type': _p.state.block(() => {
+                                if (err.code === 'EACCES' || err.code === 'EPERM') {
+                                    return ['permission denied', null]
+                                }
+                                throw new Error(`unhandled fs.writeFile error code: ${err.code}`)
+                            })
+                        })
                         return
                     }
                     fs_writeFile(
@@ -38,12 +41,15 @@ export const $$: resources.commands.write_file = __command((
                         _p_text_from_list($p.data, ($) => $),
                         (err) => {
                             if (err) {
-                                on_error(_p.state.block(() => {
-                                    if (err.code === 'EACCES' || err.code === 'EPERM') {
-                                        return ['permission denied', null]
-                                    }
-                                    throw new Error(`unhandled fs.writeFile error code: ${err.code}`)
-                                }))
+                                on_error({
+                                    'path': $p.path,
+                                    'type': _p.state.block(() => {
+                                        if (err.code === 'EACCES' || err.code === 'EPERM') {
+                                            return ['permission denied', null]
+                                        }
+                                        throw new Error(`unhandled fs.writeFile error code: ${err.code}`)
+                                    })
+                                })
                             } else {
                                 on_success()
                             }

@@ -35,24 +35,27 @@ export const $$: resources.commands.copy = __command((
                 options,
                 (err) => {
                     if (err) {
-                        on_error(_p.state.block(() => {
-                            if (err.code === 'ENOENT') {
-                                return ['source does not exist', null]
-                            }
-                            if (err.code === 'EACCES' || err.code === 'EPERM') {
-                                return ['permission denied', null]
-                            }
-                            if (err.code === 'EISDIR' || err.code === 'ERR_FS_EISDIR') {
-                                return ['node is not a file', null]
-                            }
-                            if (err.code === 'EFBIG') {
-                                return ['file too large', null]
-                            }
-                            if (err.code === 'EIO' || err.code === 'ENXIO') {
-                                return ['device not ready', null]
-                            }
-                            throw new Error(`unhandled fs.cp error code: ${err.code}`)
-                        }))
+                        on_error({
+                            'path': $p.source,
+                            'type': _p.state.block(() => {
+                                if (err.code === 'ENOENT') {
+                                    return ['source does not exist', null]
+                                }
+                                if (err.code === 'EACCES' || err.code === 'EPERM') {
+                                    return ['permission denied', null]
+                                }
+                                if (err.code === 'EISDIR' || err.code === 'ERR_FS_EISDIR') {
+                                    return ['node is not a file', null]
+                                }
+                                if (err.code === 'EFBIG') {
+                                    return ['file too large', null]
+                                }
+                                if (err.code === 'EIO' || err.code === 'ENXIO') {
+                                    return ['device not ready', null]
+                                }
+                                throw new Error(`unhandled fs.cp error code: ${err.code}`)
+                            })
+                        })
                     } else {
                         on_success()
                     }

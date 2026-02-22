@@ -23,12 +23,15 @@ export const $$: resources.commands.make_directory = __command((
                 },
                 (err, path) => {
                     if (err) {
-                        on_error(_p.state.block(() => {
-                            if (err.code === 'EEXIST') {
-                                return ['directory already exists', null]
-                            }
-                            throw new Error(`unhandled fs.mkdir error code: ${err.code}`)
-                        }))
+                        on_error({
+                            'path': $p,
+                            'type': _p.state.block(() => {
+                                if (err.code === 'EEXIST') {
+                                    return ['directory already exists', null]
+                                }
+                                throw new Error(`unhandled fs.mkdir error code: ${err.code}`)
+                            })
+                        })
                     } else {
                         on_success()
                     }

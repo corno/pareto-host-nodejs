@@ -28,21 +28,24 @@ export const $$: resources.commands.remove = __command((
                         if (err.code === 'ENOENT' && !$p['error if not exists']) {
                             on_success()
                         } else {
-                            on_error(_p.state.block(() => {
-                                if (err.code === 'ENOENT') {
-                                    return ['node does not exist', null]
-                                }
-                                if (err.code === 'EACCES' || err.code === 'EPERM') {
-                                    return ['permission denied', null]
-                                }
-                                // if (err.code === 'EISDIR' || err.code === 'ENOTDIR') {
-                                //     return ['node is not a directory', null]
-                                // }
-                                // if (err.code === 'ERR_FS_EISDIR') {
-                                //     return ['node is a directory', null]
-                                // }
-                                throw new Error(`unhandled fs.rm error code: ${err.code}`)
-                            }))
+                            on_error({
+                                'path': $p.path,
+                                'type': _p.state.block(() => {
+                                    if (err.code === 'ENOENT') {
+                                        return ['node does not exist', null]
+                                    }
+                                    if (err.code === 'EACCES' || err.code === 'EPERM') {
+                                        return ['permission denied', null]
+                                    }
+                                    // if (err.code === 'EISDIR' || err.code === 'ENOTDIR') {
+                                    //     return ['node is not a directory', null]
+                                    // }
+                                    // if (err.code === 'ERR_FS_EISDIR') {
+                                    //     return ['node is a directory', null]
+                                    // }
+                                    throw new Error(`unhandled fs.rm error code: ${err.code}`)
+                                })
+                            })
                         }
                     } else {
                         on_success()

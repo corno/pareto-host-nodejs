@@ -27,15 +27,18 @@ export const $$: resources.queries.read_directory = __query((
             },
             (err, nodes) => {
                 if (err) {
-                    on_error(_p.state.block(() => {
-                        if (err.code === 'ENOENT') {
-                            return ['directory does not exist', null]
-                        }
-                        if (err.code === 'ENOTDIR' || err.code === 'EISDIR') {
-                            return ['node is not a directory', null]
-                        }
-                        throw new Error(`unhandled fs.readdir error code: ${err.code}`)
-                    }))
+                    on_error({
+                        'path': $p.path,
+                        'type': _p.state.block(() => {
+                            if (err.code === 'ENOENT') {
+                                return ['directory does not exist', null]
+                            }
+                            if (err.code === 'ENOTDIR' || err.code === 'EISDIR') {
+                                return ['node is not a directory', null]
+                            }
+                            throw new Error(`unhandled fs.readdir error code: ${err.code}`)
+                        })
+                    })
                 } else {
                     on_value(
                         _p.dictionary.from.list(
