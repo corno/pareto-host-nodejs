@@ -40,6 +40,6 @@ export type Available_Standard_Resources = {
     }
 }
 
-export type signature = (
+export type main = (
     get_main: ($r: Available_Standard_Resources) => _pi.Command<d_main.Error, d_main.Parameters>,
 ) => void

@@ -1,9 +1,9 @@
 import * as _pi from 'pareto-core/dist/interface'
 import * as _p from 'pareto-core/dist/assign'
 
-import { signature } from './signature'
+import { main } from './signatures'
 
-export * from './signature'
+export * from './signatures'
 
 import { $$ as p_copy_signature } from "./commands/copy"
 import { $$ as p_execute_any_command_executable } from "./commands/execute_any_command_executable"
@@ -28,7 +28,7 @@ import { $$ as q_stat } from "./queries/stat"
  * `node` and the script name), and setting the process exit code to the
  * returned value when the async value completes.
  */
-export const run_main_command: signature = (
+export const run_main_command: main = (
     get_main
 ) => {
     get_main({
