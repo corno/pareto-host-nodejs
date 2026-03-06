@@ -10,6 +10,7 @@ import * as resources from "pareto-resources/dist/interface/resources"
 //dependencies
 import { spawn } from "node:child_process"
 import { Message } from '../terminal_output'
+import * as t_path_to_text from "pareto-resources/dist/implementation/manual/transformers/path/text"
 
 /**
  * 
@@ -24,7 +25,11 @@ export const $$: resources.commands.execute_any_command_executable = __command((
         'execute': (on_success, on_error) => {
 
             const child = spawn($p.program, args, {
-                shell: false, // ✅ direct execution, no shell
+                'cwd': $p['working directory'].__decide(
+                    ($) => t_path_to_text.Context_Path($),
+                    () => undefined,
+                ),
+                'shell': false, // ✅ direct execution, no shell, no quoting, no escaping, no env var expansion, no globbing
             })
 
             let stderrData = ""

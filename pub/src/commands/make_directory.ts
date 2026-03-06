@@ -9,7 +9,7 @@ import { __command_promise } from 'pareto-core/dist/__internals/async/command_pr
 
 //dependencies
 import { mkdir as fs_mkdir } from "fs"
-import * as t_path_to_text from "../path_to_text"
+import * as t_path_to_text from "pareto-resources/dist/implementation/manual/transformers/path/text"
 
 export const $$: resources.commands.make_directory = __command((
     $p,

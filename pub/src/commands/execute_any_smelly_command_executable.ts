@@ -11,6 +11,7 @@ import * as resources from "pareto-resources/dist/interface/resources"
 //dependencies
 import { spawn } from "node:child_process"
 import { Message } from '../terminal_output'
+import * as t_path_to_text from "pareto-resources/dist/implementation/manual/transformers/path/text"
 
 // import { Signature } from "pareto-resources/dist/interface/algorithms/commands/execute_smelly_procedure_executable"
 
@@ -28,6 +29,10 @@ export const $$: resources.commands.execute_any_smelly_command_executable = __co
         'execute': (on_success, on_error) => {
 
             const child = spawn($p.program, args, {
+                'cwd': $p['working directory'].__decide(
+                    ($) => t_path_to_text.Context_Path($),
+                    () => undefined,
+                ),
                 shell: false, // direct execution, no shell
                 stdio: ['pipe', 'pipe', 'pipe'], // explicitly pipe stdin, stdout, stderr
             })

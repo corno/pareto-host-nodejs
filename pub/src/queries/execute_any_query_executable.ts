@@ -10,6 +10,7 @@ import * as resources from "pareto-resources/dist/interface/resources"
 //dependencies
 import { spawn } from "node:child_process"
 import { Message } from '../terminal_output'
+import * as t_path_to_text from "pareto-resources/dist/implementation/manual/transformers/path/text"
 
 
 /**
@@ -23,6 +24,10 @@ export const $$: resources.queries.execute_any_query_executable = __query(
         return __query_result((on_value, on_error) => {
 
             const child = spawn($p.program, args, {
+                'cwd': $p['working directory'].__decide(
+                    ($) => t_path_to_text.Context_Path($),
+                    () => undefined,
+                ),
                 shell: false, // ✅ no implicit parsing
             })
 

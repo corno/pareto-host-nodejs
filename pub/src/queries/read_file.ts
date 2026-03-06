@@ -9,7 +9,7 @@ import { __query_result } from 'pareto-core/dist/__internals/async/__query_resul
 import * as resources from "pareto-resources/dist/interface/resources"
 
 //dependencies
-import * as t_path_to_text from "../path_to_text"
+import * as t_path_to_text from "pareto-resources/dist/implementation/manual/transformers/path/text"
 import { readFile as fs_readFile } from "fs"
 
 export const $$: resources.queries.read_file = __query((

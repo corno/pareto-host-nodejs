@@ -9,7 +9,7 @@ import * as resources from "pareto-resources/dist/interface/resources"
 
 //dependencies
 import { rm as fs_rm } from "fs"
-import * as t_path_to_text from "../path_to_text"
+import * as t_path_to_text from "pareto-resources/dist/implementation/manual/transformers/path/text"
 
 
 export const $$: resources.commands.remove = __command((
