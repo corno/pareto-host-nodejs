@@ -21,7 +21,6 @@ import { $$ as q_execute_any_query_executable } from "./queries/execute_any_quer
 import { $$ as q_get_instream_data } from "./queries/get_instream_data"
 import { $$ as q_read_directory } from "./queries/read_directory"
 import { $$ as q_read_file } from "./queries/read_file"
-import { $$ as q_stat } from "./queries/stat"
 
 /**
  * Runs a program main function, passing command line arguments (excluding
