@@ -1,8 +1,8 @@
 import * as _pq from 'pareto-core/dist/query'
 import * as _p from 'pareto-core/dist/assign'
 
-import { __query } from 'pareto-core/dist/__internals/async/query'
-import { __query_result } from 'pareto-core/dist/__internals/async/__query_result'
+import __query from 'pareto-core/dist/__internals/async/query'
+import __query_result from 'pareto-core/dist/__internals/async/__query_result'
 
 
 //interface
