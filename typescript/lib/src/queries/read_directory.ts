@@ -20,7 +20,7 @@ export const $$: resources.queries.read_directory = __query((
 ) => {
     return __query_result((on_value, on_error) => {
         fs_readdir(
-            t_path_to_text.Node_Path($p.path),
+            t_path_to_text.Context_Path($p.path),
             {
                 'encoding': 'utf-8',
                 'withFileTypes': true,
@@ -49,11 +49,11 @@ export const $$: resources.queries.read_directory = __query((
                                 'node type': $.isFile()
                                     ? ['file', null]
                                     : $.isDirectory() ? ['directory', null] : ['other', null],
-                                'context directory': t_path_to_path.deprecated_node_path_to_context_path($p.path),
-                                'path': t_path_to_path.extend_node_path(
+                                'context directory': $p.path,
+                                'path': t_path_to_path.create_node_path(
                                     $p.path,
                                     {
-                                        'addition': $.name,
+                                        'node': $.name,
                                     }
                                 )
                             }),
