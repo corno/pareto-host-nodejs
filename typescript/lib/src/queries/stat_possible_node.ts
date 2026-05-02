@@ -21,7 +21,7 @@ export const $$: resources.queries.stat_possible_node = __query((
             (err, stats) => {
                 if (err) {
                     if (err.code === 'ENOENT') {
-                        on_value(['does not exist', null] )
+                        on_value(['does not exist', null])
                     } else {
                         on_error({
                             'path': $p,
@@ -30,11 +30,12 @@ export const $$: resources.queries.stat_possible_node = __query((
                             })
                         })
                     }
+                } else {
+                    on_value(stats.isFile()
+                        ? ['file', null]
+                        : ['directory', null]
+                    )
                 }
-                on_value(stats.isFile()
-                    ? ['file', null]
-                    : ['directory', null]
-                )
             }
         )
     })
