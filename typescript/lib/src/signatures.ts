@@ -12,6 +12,7 @@ import * as d_read_directory from "pareto-resources/dist/interface/generated/lia
 import * as d_read_file from "pareto-resources/dist/interface/generated/liana/schemas/read_file/data"
 import * as d_remove from "pareto-resources/dist/interface/generated/liana/schemas/remove/data"
 import * as d_stat from "pareto-resources/dist/interface/generated/liana/schemas/stat/data"
+import * as d_stat_possible_node from "pareto-resources/dist/interface/generated/liana/schemas/stat_possible_node/data"
 import * as d_write_file from "pareto-resources/dist/interface/generated/liana/schemas/write_file/data"
 import * as d_write_to_stderr from "pareto-resources/dist/interface/generated/liana/schemas/write_to_stderr/data"
 import * as d_write_to_stdout from "pareto-resources/dist/interface/generated/liana/schemas/write_to_stdout/data"
@@ -36,7 +37,8 @@ export type Available_Standard_Resources = {
         'get instream data': _pi.Query<d_get_instream_data.Result, null, d_get_instream_data.Parameters>
         'read directory': _pi.Query<d_read_directory.Result, d_read_directory.Error, d_read_directory.Parameters>
         'read file': _pi.Query<d_read_file.Result, d_read_file.Error, d_read_file.Parameters>
-        //'stat': _pi.Query<d_stat.Parameters, d_stat.Result, d_stat.Error>
+        // 'stat': _pi.Query<d_stat.Parameters, d_stat.Result, d_stat.Error>
+        'stat possible node': _pi.Query<d_stat_possible_node.Result, d_stat_possible_node.Error, d_stat_possible_node.Parameters>
     }
 }
 
