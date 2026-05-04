@@ -18,7 +18,7 @@ export const $$: resources.commands.remove = __command((
     return __command_promise({
         'execute': (on_success, on_error) => {
             fs_rm(
-                t_path_to_text.Node_Path($p.path),
+                t_path_to_text.Context_Path($p.path),
                 {
                     'recursive': true,
                 },
