@@ -1,5 +1,6 @@
 import * as _pi from 'pareto-core/dist/interface'
 
+import * as d_chmod from "pareto-resources/dist/interface/generated/liana/schemas/chmod/data"
 import * as d_copy from "pareto-resources/dist/interface/generated/liana/schemas/copy/data"
 import * as d_execute_any_command_executable from "pareto-resources/dist/interface/generated/liana/schemas/execute_any_command_executable/data"
 import * as d_execute_any_smelly_command_executable from "pareto-resources/dist/interface/generated/liana/schemas/execute_any_smelly_command_executable/data"
@@ -21,6 +22,7 @@ import * as d_main from "pareto-resources/dist/interface/to_be_generated/temp_ma
 
 export type Available_Standard_Resources = {
     'commands': {
+        'chmod': _pi.Command<d_chmod.Error, d_chmod.Parameters>
         'copy': _pi.Command<d_copy.Error, d_copy.Parameters>
         'execute any command executable': _pi.Command<d_execute_any_command_executable.Error, d_execute_any_command_executable.Parameters>
         'execute any smelly command executable': _pi.Command<d_execute_any_smelly_command_executable.Error, d_execute_any_smelly_command_executable.Parameters>

@@ -5,6 +5,7 @@ import { main } from './signatures'
 
 export * from './signatures'
 
+import { $$ as p_chmod_signature } from "./commands/chmod"
 import { $$ as p_copy_signature } from "./commands/copy"
 import { $$ as p_execute_any_command_executable } from "./commands/execute_any_command_executable"
 import { $$ as p_execute_any_smelly_command_executable } from "./commands/execute_any_smelly_command_executable"
@@ -34,6 +35,7 @@ export const run_main_command: main = (
 ) => {
     get_main({
         'commands': {
+            'chmod': p_chmod_signature,
             'copy': p_copy_signature,
             'execute any command executable': p_execute_any_command_executable,
             'execute any smelly command executable': p_execute_any_smelly_command_executable,
