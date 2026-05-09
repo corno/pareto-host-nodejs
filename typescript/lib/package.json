@@ -1,9 +1,9 @@
 {
   "name": "pareto-host-nodejs",
   "version": "0.2.49",
-  "license": "ISC",
-  "description": "the exupery core package for creating a main function in a nodejs host environment",
+  "license": "Apache-2.0",
   "author": "Corno",
+  "description": "the exupery core package for creating a main function in a nodejs host environment",
   "keywords": [
     "pareto",
     "nodejs host environment"
@@ -12,6 +12,13 @@
   "bugs": {
     "url": "https://github.com/corno/pareto-host-nodejs/issues"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/corno/pareto-host-nodejs.git"
+  },
+  "devDependencies": {
+    "@types/node": "^25.0.3"
+  },
   "main": "./dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -19,12 +26,5 @@
   ],
   "dependencies": {
     "pareto-resources": "^0.2.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/corno/pareto-host-nodejs.git"
-  },
-  "devDependencies": {
-    "@types/node": "^25.0.3"
   }
 }
