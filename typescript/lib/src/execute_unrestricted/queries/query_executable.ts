@@ -18,7 +18,7 @@ import * as t_path_to_text from "pareto-resources/dist/implementation/manual/tra
  * The executable being executed is assumed to be side effect free
  * There is no way to give guarantees about that though
  */
-export const $$: resources.queries.execute_any_query_executable = __query(
+export const $$: resources.execute_unrestricted.queries.query_executable = __query(
     ($p,) => {
         const args = $p.args.__get_raw_copy()
         return __query_result((on_value, on_error) => {

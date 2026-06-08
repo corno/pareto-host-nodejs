@@ -6,7 +6,7 @@ import __command_promise from 'pareto-core/dist/__internals/async/command_promis
 //interface
 import * as resources from "pareto-resources/dist/interface/resources"
 
-export const $$: resources.commands.stream_write_to_stderr = __command( (
+export const $$: resources.stream.commands.write_to_stderr = __command( (
     $p,
 ) => {
     return __command_promise({

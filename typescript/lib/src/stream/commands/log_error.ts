@@ -9,7 +9,7 @@ import * as resources from "pareto-resources/dist/interface/resources"
 //dependencies
 import * as t_fp_to_list_of_characters from "pareto-fountain-pen/dist/implementation/manual/transformers/prose/list_of_characters"
 
-export const $$: resources.commands.stream_log_error = __command((
+export const $$: resources.stream.commands.log_error = __command((
     $p,
 ) => {
     return __command_promise({

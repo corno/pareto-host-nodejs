@@ -2,9 +2,9 @@ import * as _pi from 'pareto-core/dist/interface'
 import * as _pi_temp from '../temp_core'
 
 
-import * as d_execute_command_executable from "pareto-resources/dist/interface/generated/liana/schemas/execute_command_executable/data"
-import * as d_execute_smelly_command_executable from "pareto-resources/dist/interface/generated/liana/schemas/execute_smelly_command_executable/data"
-import * as d_execute_query_executable from "pareto-resources/dist/interface/generated/liana/schemas/execute_query_executable/data"
+import * as d_execute_command_executable from "pareto-resources/dist/interface/generated/liana/schemas/execute_sandboxed_command_executable/data"
+import * as d_execute_smelly_command_executable from "pareto-resources/dist/interface/generated/liana/schemas/execute_sandboxed_smelly_command_executable/data"
+import * as d_execute_query_executable from "pareto-resources/dist/interface/generated/liana/schemas/execute_sandboxed_query_executable/data"
 
 export type Resources = _pi_temp.Resource_Collection<
     {

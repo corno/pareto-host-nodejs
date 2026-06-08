@@ -15,7 +15,7 @@ import * as t_path_to_text from "pareto-resources/dist/implementation/manual/tra
 import * as t_path_to_path from "pareto-resources/dist/implementation/manual/transformers/unrestricted_path/unrestricted_path"
 
 
-export const $$: resources.queries.fs_unrestricted_read_directory = __query((
+export const $$: resources.filesystem_unrestricted.queries.read_directory = __query((
     $p
 ) => {
     return __query_result((on_value, on_error) => {

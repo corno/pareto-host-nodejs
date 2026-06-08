@@ -15,13 +15,13 @@ import * as resources from "pareto-resources/dist/interface/resources"
 
 //dependencies
 import * as c_unrestricted from "../../file_system_unrestricted/commands/write_file"
-import * as t_sandboxed_path_to_unrestricted_path from "pareto-resources/dist/implementation/manual/transformers/unrestricted_path/sandboxed_path"
+import * as t_sandboxed_path_to_unrestricted_path from "pareto-resources/dist/implementation/manual/transformers/sandboxed_path/unrestricted_path"
 
 export const $$: (
     $x: {
         'context': d_fs_unrestricted_path.Context_Path
     }
-) => resources.commands.fs_sandboxed_write_file = ($x) => __command(
+) => resources.filesystem_sandboxed.commands.write_file = ($x) => __command(
     ($p) => c_unrestricted.$$.execute(
         {
             'data': $p.data,

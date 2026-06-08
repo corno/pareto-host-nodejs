@@ -6,7 +6,7 @@ import * as d_fs_sandboxed from "pareto-resources/dist/interface/generated/liana
 
 //dependencies
 import * as c_unrestricted from "../../file_system_unrestricted/commands/make_directory"
-import * as t_sandboxed_path_to_unrestricted_path from "pareto-resources/dist/implementation/manual/transformers/unrestricted_path/sandboxed_path"
+import * as t_sandboxed_path_to_unrestricted_path from "pareto-resources/dist/implementation/manual/transformers/sandboxed_path/unrestricted_path"
 
 
 export const $$ = __create_command(

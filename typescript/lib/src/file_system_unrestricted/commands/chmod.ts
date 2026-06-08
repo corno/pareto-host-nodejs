@@ -30,7 +30,7 @@ function permissions_to_octal(permissions: d.Permissions): number {
     return value
 }
 
-export const $$: resources.commands.fs_unrestricted_chmod = __command((
+export const $$: resources.filesystem_unrestricted.commands.chmod = __command((
     $p,
 ) => {
     return __command_promise({

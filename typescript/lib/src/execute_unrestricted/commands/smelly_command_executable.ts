@@ -21,7 +21,7 @@ import * as t_path_to_text from "pareto-resources/dist/implementation/manual/tra
  * The executable being executed is assumed to only cause side effects
  * and not return any meaningful data, std::out is therefor ignored
  */
-export const $$: resources.commands.execute_any_smelly_command_executable = __command((
+export const $$: resources.execute_unrestricted.commands.smelly_command_executable = __command((
     $p,
 ) => {
     const args = $p.args.__get_raw_copy()

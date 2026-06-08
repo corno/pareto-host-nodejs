@@ -12,7 +12,7 @@ import * as resources from "pareto-resources/dist/interface/resources"
 import * as t_path_to_text from "pareto-resources/dist/implementation/manual/transformers/unrestricted_path/text"
 import { readFile as fs_readFile } from "fs"
 
-export const $$: resources.queries.fs_unrestricted_read_file = __query((
+export const $$: resources.filesystem_unrestricted.queries.read_file = __query((
     $p
 ) => {
     return __query_result((on_value, on_error) => {

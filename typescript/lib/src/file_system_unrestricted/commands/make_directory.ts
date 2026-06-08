@@ -12,7 +12,7 @@ import { mkdir as fs_mkdir } from "fs"
 import { rm as fs_remove } from "fs"
 import * as t_path_to_text from "pareto-resources/dist/implementation/manual/transformers/unrestricted_path/text"
 
-export const $$: resources.commands.fs_unrestricted_make_directory = __command((
+export const $$: resources.filesystem_unrestricted.commands.make_directory = __command((
     $p,
 ) => {
     return __command_promise({
