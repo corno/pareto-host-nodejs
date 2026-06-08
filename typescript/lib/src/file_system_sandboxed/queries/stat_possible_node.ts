@@ -10,7 +10,7 @@ import * as resources from "pareto-resources/dist/interface/resources"
 
 //dependencies
 import { stat as fs_stat } from "fs"
-import * as t_path_to_text from "pareto-resources/dist/implementation/manual/transformers/path/text"
+import * as t_path_to_text from "pareto-resources/dist/implementation/manual/transformers/unrestricted_path/text"
 
 export const $$: resources.queries.fs_unrestricted_stat_possible_node = __query((
     $p

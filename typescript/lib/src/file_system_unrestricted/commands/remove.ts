@@ -9,7 +9,7 @@ import * as resources from "pareto-resources/dist/interface/resources"
 
 //dependencies
 import { rm as fs_rm } from "fs"
-import * as t_path_to_text from "pareto-resources/dist/implementation/manual/transformers/path/text"
+import * as t_path_to_text from "pareto-resources/dist/implementation/manual/transformers/unrestricted_path/text"
 
 
 export const $$: resources.commands.fs_unrestricted_remove = __command((

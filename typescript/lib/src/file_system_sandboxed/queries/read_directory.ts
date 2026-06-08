@@ -11,8 +11,8 @@ import * as resources from "pareto-resources/dist/interface/resources"
 
 //dependencies
 import { readdir as fs_readdir } from "fs"
-import * as t_path_to_text from "pareto-resources/dist/implementation/manual/transformers/path/text"
-import * as t_path_to_path from "pareto-resources/dist/implementation/manual/transformers/path/path"
+import * as t_path_to_text from "pareto-resources/dist/implementation/manual/transformers/unrestricted_path/text"
+import * as t_path_to_path from "pareto-resources/dist/implementation/manual/transformers/unrestricted_path/unrestricted_path"
 
 
 export const $$: resources.queries.fs_unrestricted_read_directory = __query((

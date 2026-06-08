@@ -14,7 +14,7 @@ import * as resources from "pareto-resources/dist/interface/resources"
 
 //dependencies
 import { chmod as fs_chmod } from "fs"
-import * as t_path_to_text from "pareto-resources/dist/implementation/manual/transformers/path/text"
+import * as t_path_to_text from "pareto-resources/dist/implementation/manual/transformers/unrestricted_path/text"
 
 function permissions_to_octal(permissions: d.Permissions): number {
     let value = 0

@@ -11,7 +11,7 @@ import * as resources from "pareto-resources/dist/interface/resources"
 
 //dependencies
 import { cp as fs_cp } from "fs"
-import * as t_path_to_text from "pareto-resources/dist/implementation/manual/transformers/path/text"
+import * as t_path_to_text from "pareto-resources/dist/implementation/manual/transformers/unrestricted_path/text"
 
 export const $$: resources.commands.fs_unrestricted_copy = __command((
     $p,
