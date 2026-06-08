@@ -12,7 +12,7 @@ import * as resources from "pareto-resources/dist/interface/resources"
 import { mkdir as fs_mkdir, writeFile as fs_writeFile } from "fs"
 import * as t_path_to_text from "pareto-resources/dist/implementation/manual/transformers/path/text"
 
-export const $$: resources.commands.write_file = __command((
+export const $$: resources.commands.fs_unrestricted_write_file = __command((
     $p,
 ) => {
     return __command_promise({

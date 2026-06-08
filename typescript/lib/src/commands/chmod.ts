@@ -7,7 +7,7 @@ import __command_promise from 'pareto-core/dist/__internals/async/command_promis
 import _p_text_from_list from "pareto-core/dist/_p_text_from_list"
 
 //data types
-import * as d from "pareto-resources/dist/interface/generated/liana/schemas/chmod/data"
+import * as d from "pareto-resources/dist/interface/generated/liana/schemas/fs_unrestricted_chmod/data"
 
 //interface
 import * as resources from "pareto-resources/dist/interface/resources"
@@ -30,7 +30,7 @@ function permissions_to_octal(permissions: d.Permissions): number {
     return value
 }
 
-export const $$: resources.commands.chmod = __command((
+export const $$: resources.commands.fs_unrestricted_chmod = __command((
     $p,
 ) => {
     return __command_promise({

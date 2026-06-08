@@ -12,7 +12,7 @@ import * as resources from "pareto-resources/dist/interface/resources"
 import { stat as fs_stat } from "fs"
 import * as t_path_to_text from "pareto-resources/dist/implementation/manual/transformers/path/text"
 
-export const $$: resources.queries.stat_possible_node = __query((
+export const $$: resources.queries.fs_unrestricted_stat_possible_node = __query((
     $p
 ) => {
     return __query_result((on_value, on_error) => {

@@ -10,7 +10,7 @@ import * as t_fp_to_list_of_characters from "pareto-fountain-pen/dist/implementa
 import __command from 'pareto-core/dist/__internals/async/command'
 import __command_promise from 'pareto-core/dist/__internals/async/command_promise'
 
-export const $$: resources.commands.log = __command((
+export const $$: resources.commands.stream_log = __command((
     $p,
 ) => {
     return __command_promise({
