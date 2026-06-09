@@ -6,7 +6,7 @@ import __query_result from 'pareto-core/dist/__internals/async/__query_result'
 //interface
 import * as resources from "pareto-stream/dist/interface/resources"
 
-export const $$: resources.stream.queries.get_instream_data = __query((
+export const $$: resources.queries.get_instream_data = __query((
 ) => {
     return __query_result((on_value) => {
 

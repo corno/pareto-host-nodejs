@@ -7,12 +7,12 @@ import * as resources from "pareto-stream/dist/interface/resources"
 
 export type Resources = _pi_temp.Resource_Collection<
     {
-        'log error': resources.stream.commands.log_error
-        'log': resources.stream.commands.log
-        'write to stderr': resources.stream.commands.write_to_stderr
-        'write to stdout': resources.stream.commands.write_to_stdout
+        'log error': resources.commands.log_error
+        'log': resources.commands.log
+        'write to stderr': resources.commands.write_to_stderr
+        'write to stdout': resources.commands.write_to_stdout
     },
     {
-        'get instream data': resources.stream.queries.get_instream_data
+        'get instream data': resources.queries.get_instream_data
     }
 >
