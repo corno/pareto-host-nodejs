@@ -1,17 +1,15 @@
 import * as _pi from 'pareto-core/dist/interface'
 import * as _pi_temp from '../temp_core'
 
-import * as d_execute_unrestricted_command_executable from "pareto-resources/dist/interface/generated/liana/schemas/execute_unrestricted_command_executable/data"
-import * as d_execute_unrestricted_smelly_command_executable from "pareto-resources/dist/interface/generated/liana/schemas/execute_unrestricted_smelly_command_executable/data"
-import * as d_execute_unrestricted_query_executable from "pareto-resources/dist/interface/generated/liana/schemas/execute_unrestricted_query_executable/data"
+import * as resources from "pareto-resources/dist/interface/resources"
 
 export type Resources = _pi_temp.Resource_Collection<
         {
-            'command executable': _pi_temp.Command_Creator<d_execute_unrestricted_command_executable.Error, d_execute_unrestricted_command_executable.Parameters, null>
-            'smelly command executable': _pi_temp.Command_Creator<d_execute_unrestricted_smelly_command_executable.Error, d_execute_unrestricted_smelly_command_executable.Parameters, null>
+            'command executable': resources.execute_unrestricted.commands.command_executable
+            'smelly command executable': resources.execute_unrestricted.commands.smelly_command_executable
 
         },
         {
-            'query executable': _pi_temp.Query_Creator<d_execute_unrestricted_query_executable.Result, d_execute_unrestricted_query_executable.Error, d_execute_unrestricted_query_executable.Parameters, null>
+            'query executable': resources.execute_unrestricted.queries.query_executable
         }
 >

@@ -6,11 +6,11 @@ import { $$ as q_execute_query_executable } from "./queries/query_executable"
 
 export const $: Resources = {
     'commands': {
-        'command executable': () => p_execute_command_executable,
-        'smelly command executable': () => p_execute_smelly_command_executable,
+        'command executable': p_execute_command_executable,
+        'smelly command executable': p_execute_smelly_command_executable,
 
     },
     'queries': {
-        'query executable': () => q_execute_query_executable,
+        'query executable': q_execute_query_executable,
     }
 }

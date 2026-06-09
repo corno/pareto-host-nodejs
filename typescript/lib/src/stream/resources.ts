@@ -9,13 +9,13 @@ import { $$ as q_stream_get_instream_data } from "./queries/get_instream_data"
 
 export const $: Resources = {
     'commands': {
-        'log error': () => p_stream_log_error,
-        'log': () => p_stream_log,
-        'write to stderr': () => p_stream_write_to_stderr,
-        'write to stdout': () => p_stream_write_to_stdout,
+        'log error': p_stream_log_error,
+        'log': p_stream_log,
+        'write to stderr': p_stream_write_to_stderr,
+        'write to stdout': p_stream_write_to_stdout,
 
     },
     'queries': {
-        'get instream data': () => q_stream_get_instream_data,
+        'get instream data': q_stream_get_instream_data,
     }
 }

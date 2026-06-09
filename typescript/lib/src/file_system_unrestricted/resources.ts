@@ -13,17 +13,17 @@ import { $$ as q_fs_unrestricted_stat_possible_node } from "./queries/stat_possi
 
 export const $: Resources = {
     'commands': {
-        'chmod': () => p_fs_unrestricted_chmod,
-        'copy': () => p_fs_unrestricted_copy,
-        'make directory': () => p_fs_unrestricted_make_directory,
-        'remove': () => p_fs_unrestricted_remove,
-        'write file': () => p_fs_unrestricted_write_file,
+        'chmod': p_fs_unrestricted_chmod,
+        'copy': p_fs_unrestricted_copy,
+        'make directory': p_fs_unrestricted_make_directory,
+        'remove': p_fs_unrestricted_remove,
+        'write file': p_fs_unrestricted_write_file,
 
     },
     'queries': {
-        'read directory': () => q_fs_unrestricted_read_directory,
-        'read file': () => q_fs_unrestricted_read_file,
-        // 'stat': () => q_fs_unrestricted_stat,
-        'stat possible node': () => q_fs_unrestricted_stat_possible_node,
+        'read directory': q_fs_unrestricted_read_directory,
+        'read file': q_fs_unrestricted_read_file,
+        // 'stat': q_fs_unrestricted_stat,
+        'stat possible node': q_fs_unrestricted_stat_possible_node,
     }
 }
