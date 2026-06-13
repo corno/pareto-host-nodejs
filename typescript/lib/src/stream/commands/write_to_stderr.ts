@@ -11,7 +11,7 @@ export const $$: resources.commands.write_to_stderr = __command( (
 ) => {
     return __command_promise({
         'execute': (on_success) => {
-            process.stderr.write($p)
+            process.stderr.write($p.data)
             on_success()
         }
     })
