@@ -1,7 +1,7 @@
 import * as _pq from 'pareto-core/dist/query/implementation'
 import * as _p from 'pareto-core/dist/assign'
 import _p_unreachable_code_path from 'pareto-core/dist/specials/unreachable_code_path'
-import * as _pi from 'pareto-core/dist/interface'
+import * as p_di from 'pareto-core/dist/data/interface'
 
 import __query from 'pareto-core/dist/query/implementation/query'
 import __query_result from 'pareto-core/dist/query/implementation/__query_result'
@@ -18,7 +18,7 @@ import { readdir as fs_readdir } from "fs"
 import * as t_path_to_text from "pareto-resources/dist/implementation/manual/transformers/unrestricted_path/text"
 import * as t_path_to_path from "pareto-resources/dist/implementation/manual/transformers/unrestricted_path/unrestricted_path"
 
-type ID_Value_Pair<T extends _pi.Value> = {
+type ID_Value_Pair<T extends p_di.Value> = {
     readonly 'id': string
     readonly 'value': T
 }
