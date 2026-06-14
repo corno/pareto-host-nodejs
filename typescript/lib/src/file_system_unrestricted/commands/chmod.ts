@@ -37,20 +37,20 @@ export const $$: resources.filesystem_unrestricted.commands.chmod = __command((
         'execute': (on_success, on_error) => {
             // Convert permissions structure to numeric mode
             let mode = 0
-            
+
             // Special bits (optional)
 
-            $p.mode['special bits'].__decide(
+            $p.mode['special bits'].__extract_data(
                 ($) => {
-                if ($.setuid) {
-                    mode += 0o4000
-                }
-                if ($.setgid) {
-                    mode += 0o2000
-                }
-                if ($.sticky) {
-                    mode += 0o1000
-                }
+                    if ($.setuid) {
+                        mode += 0o4000
+                    }
+                    if ($.setgid) {
+                        mode += 0o2000
+                    }
+                    if ($.sticky) {
+                        mode += 0o1000
+                    }
 
                 },
                 () => {
@@ -60,7 +60,7 @@ export const $$: resources.filesystem_unrestricted.commands.chmod = __command((
             if ($p.mode['special bits'] !== null) {
                 const specialBits = $p.mode['special bits']
             }
-            
+
             // Owner, group, others
             mode += permissions_to_octal($p.mode.owner) * 0o100
             mode += permissions_to_octal($p.mode.group) * 0o10

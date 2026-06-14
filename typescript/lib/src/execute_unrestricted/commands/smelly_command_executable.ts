@@ -28,11 +28,16 @@ export const $$: resources.execute_unrestricted.commands.smelly_command_executab
     return __command_promise({
         'execute': (on_success, on_error) => {
 
+            let cwd: string | undefined = undefined
+            $p['working directory'].__extract_data(
+                ($) => {
+                    cwd = t_path_to_text.Context_Path($)
+                },
+                () => { },
+            )
+
             const child = spawn($p.program, args, {
-                'cwd': $p['working directory'].__decide(
-                    ($) => t_path_to_text.Context_Path($),
-                    () => undefined,
-                ),
+                'cwd': cwd,
                 shell: false, // direct execution, no shell
                 stdio: ['pipe', 'pipe', 'pipe'], // explicitly pipe stdin, stdout, stderr
             })

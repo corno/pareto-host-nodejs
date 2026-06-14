@@ -23,11 +23,16 @@ export const $$: resources.execute_unrestricted.queries.query_executable = __que
         const args = $p.args.__get_raw_copy()
         return __query_result((on_value, on_error) => {
 
+            let cwd: string | undefined = undefined
+            $p['working directory'].__extract_data(
+                ($) => {
+                    cwd = t_path_to_text.Context_Path($)
+                },
+                () => { },
+            )
+
             const child = spawn($p.program, args, {
-                'cwd': $p['working directory'].__decide(
-                    ($) => t_path_to_text.Context_Path($),
-                    () => undefined,
-                ),
+                'cwd': cwd,
                 shell: false, // ✅ no implicit parsing
             })
 
