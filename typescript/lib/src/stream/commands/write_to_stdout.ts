@@ -4,7 +4,7 @@ import __command from 'pareto-core/dist/__internals/async/command'
 import __command_promise from 'pareto-core/dist/__internals/async/command_promise'
 
 //interface
-import * as resources from "pareto-stream/dist/interface/resources"
+import * as resources from "pareto-stream/dist/interface/commands"
 
 export const $$: resources.commands.write_to_stdout = __command((
     $d,

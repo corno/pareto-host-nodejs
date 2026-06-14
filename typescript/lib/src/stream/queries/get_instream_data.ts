@@ -4,7 +4,7 @@ import __query from 'pareto-core/dist/__internals/async/query'
 import __query_result from 'pareto-core/dist/__internals/async/__query_result'
 
 //interface
-import * as resources from "pareto-stream/dist/interface/resources"
+import * as resources from "pareto-stream/dist/interface/queries"
 
 export const $$: resources.queries.get_instream_data = __query((
 ) => {

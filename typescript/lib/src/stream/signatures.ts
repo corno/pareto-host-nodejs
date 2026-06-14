@@ -2,17 +2,18 @@ import * as _pi from 'pareto-core/dist/interface'
 import * as _pi_temp from '../temp_core'
 
 
-import * as resources from "pareto-stream/dist/interface/resources"
+import * as commands from "pareto-stream/dist/interface/commands"
+import * as queries from "pareto-stream/dist/interface/queries"
 
 
 export type Resources = _pi_temp.Resource_Collection<
     {
-        'log error': resources.commands.log_error
-        'log': resources.commands.log
-        'write to stderr': resources.commands.write_to_stderr
-        'write to stdout': resources.commands.write_to_stdout
+        'log error': commands.commands.log_error
+        'log': commands.commands.log
+        'write to stderr': commands.commands.write_to_stderr
+        'write to stdout': commands.commands.write_to_stdout
     },
     {
-        'get instream data': resources.queries.get_instream_data
+        'get instream data': queries.queries.get_instream_data
     }
 >

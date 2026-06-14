@@ -4,7 +4,7 @@ import __command from 'pareto-core/dist/__internals/async/command'
 import __command_promise from 'pareto-core/dist/__internals/async/command_promise'
 
 //interface
-import * as resources from "pareto-stream/dist/interface/resources"
+import * as resources from "pareto-stream/dist/interface/commands"
 
 //dependencies
 import * as t_fp_to_list_of_characters from "pareto-fountain-pen/dist/implementation/manual/transformers/prose/list_of_characters"
