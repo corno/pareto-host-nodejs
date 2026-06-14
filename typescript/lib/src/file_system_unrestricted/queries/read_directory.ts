@@ -1,10 +1,10 @@
-import * as _pq from 'pareto-core/dist/query'
+import * as _pq from 'pareto-core/dist/query/implementation'
 import * as _p from 'pareto-core/dist/assign'
-import _p_unreachable_code_path from 'pareto-core/dist/_p_unreachable_code_path'
+import _p_unreachable_code_path from 'pareto-core/dist/specials/unreachable_code_path'
 import * as _pi from 'pareto-core/dist/interface'
 
-import __query from 'pareto-core/dist/__internals/async/query'
-import __query_result from 'pareto-core/dist/__internals/async/__query_result'
+import __query from 'pareto-core/dist/query/implementation/query'
+import __query_result from 'pareto-core/dist/query/implementation/__query_result'
 
 
 //interface

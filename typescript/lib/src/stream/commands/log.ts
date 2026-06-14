@@ -1,5 +1,5 @@
-import * as _pc from 'pareto-core/dist/command'
-import _p_text_from_list from 'pareto-core/dist/_p_text_from_list'
+import * as _pc from 'pareto-core/dist/command/implementation'
+import _p_text_from_list from 'pareto-core/dist/specials/text_from_list'
 
 //interface
 import * as resources from "pareto-stream/dist/interface/commands"
@@ -7,8 +7,8 @@ import * as resources from "pareto-stream/dist/interface/commands"
 //dependencies
 import * as t_fp_to_list_of_characters from "pareto-fountain-pen/dist/implementation/manual/transformers/prose/list_of_characters"
 
-import __command from 'pareto-core/dist/__internals/async/command'
-import __command_promise from 'pareto-core/dist/__internals/async/command_promise'
+import __command from 'pareto-core/dist/command/implementation/command'
+import __command_promise from 'pareto-core/dist/command/implementation/command_promise'
 
 export const $$: resources.commands.log = __command((
     $p,
