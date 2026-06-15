@@ -1,5 +1,4 @@
-import * as p_ci from 'pareto-core/dist/command/interface'
-import * as p_qi from 'pareto-core/dist/query/interface'
+import * as p_ci from 'pareto-core/dist/interface/command'
 
 import * as d_filesystem_unrestricted from "./file_system_unrestricted/signatures"
 import * as d_filesystem_stream from "./stream/signatures"

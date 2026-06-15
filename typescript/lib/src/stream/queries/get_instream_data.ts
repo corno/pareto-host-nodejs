@@ -1,7 +1,7 @@
-import * as p_q from 'pareto-core/dist/query/implementation'
+import * as p_q from 'pareto-core/dist/implementation/query'
 
-import __query from 'pareto-core/dist/query/implementation/query'
-import __query_result from 'pareto-core/dist/query/implementation/__query_result'
+import __query from 'pareto-core/dist/implementation/query/query'
+import __query_result from 'pareto-core/dist/implementation/query/__query_result'
 
 //interface
 import * as resources from "pareto-stream/dist/interface/queries"

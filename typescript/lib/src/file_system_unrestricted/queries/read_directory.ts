@@ -1,9 +1,9 @@
 import * as p_a from 'pareto-core/dist/assign'
-import p_unreachable_code_path from 'pareto-core/dist/specials/unreachable_code_path'
-import * as p_di from 'pareto-core/dist/data/interface'
+import p_unreachable_code_path from 'pareto-core/dist/implementation/specials/unreachable_code_path'
+import * as p_di from 'pareto-core/dist/interface/data'
 
-import __query from 'pareto-core/dist/query/implementation/query'
-import __query_result from 'pareto-core/dist/query/implementation/__query_result'
+import __query from 'pareto-core/dist/implementation/query/query'
+import __query_result from 'pareto-core/dist/implementation/query/__query_result'
 
 
 //interface

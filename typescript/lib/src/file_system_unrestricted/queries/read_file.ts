@@ -1,8 +1,8 @@
 import * as p_a from 'pareto-core/dist/assign'
-import _p_list_from_text from 'pareto-core/dist/specials/list_from_text'
+import _p_list_from_text from 'pareto-core/dist/implementation/specials/list_from_text'
 
-import __query from 'pareto-core/dist/query/implementation/query'
-import __query_result from 'pareto-core/dist/query/implementation/__query_result'
+import __query from 'pareto-core/dist/implementation/query/query'
+import __query_result from 'pareto-core/dist/implementation/query/__query_result'
 
 //interface
 import * as resources from "pareto-resources/dist/interface/resources"

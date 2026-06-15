@@ -1,7 +1,7 @@
 import * as p_a from 'pareto-core/dist/assign'
 
-import __command from 'pareto-core/dist/command/implementation/command'
-import __command_promise from 'pareto-core/dist/command/implementation/command_promise'
+import __command from 'pareto-core/dist/implementation/command/command'
+import __command_promise from 'pareto-core/dist/implementation/command/command_promise'
 
 //data types
 import * as d from "pareto-resources/dist/interface/generated/liana/schemas/fs_unrestricted_chmod/data"
