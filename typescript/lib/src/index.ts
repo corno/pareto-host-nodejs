@@ -29,7 +29,7 @@ export const run_main_command: main = (
         //'filesystem sandboxed': r_filesystem_sandboxed,
     }).execute(
         {
-            'arguments': _p.list.literal(process.argv.slice(2))
+            'arguments': _p.literal.list(process.argv.slice(2))
         },
         ($) => $,
     ).__start(

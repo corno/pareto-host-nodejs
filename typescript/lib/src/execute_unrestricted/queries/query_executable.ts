@@ -66,7 +66,7 @@ export const $$: resources.execute_unrestricted.queries.query_executable = __que
                 } else {
                     on_error(_p.state.block(() => {
                         return ['non zero exit code', {
-                            'exit code': exitCode === null ? _p.optional.literal.not_set() : _p.optional.literal.set(exitCode),
+                            'exit code': exitCode === null ? _p.literal.not_set() : _p.literal.set(exitCode),
                             'stderr': Message(stderrData),
                         }]
                     }))

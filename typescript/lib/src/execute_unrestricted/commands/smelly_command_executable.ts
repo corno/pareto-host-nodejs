@@ -65,7 +65,7 @@ export const $$: resources.execute_unrestricted.commands.smelly_command_executab
                     on_success()
                 } else {
                     on_error(['non zero exit code', {
-                        'exit code': exitCode === null ? _p.optional.literal.not_set() : _p.optional.literal.set(exitCode),
+                        'exit code': exitCode === null ? _p.literal.not_set() : _p.literal.set(exitCode),
                         'stderr': Message(stderrData),
                         'stdout': Message(stdoutData),
                     }])

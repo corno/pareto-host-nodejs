@@ -9,7 +9,7 @@ import * as sh from "pareto-fountain-pen/dist/shorthands/prose"
 export const Message = ($: string): d_terminal_output.Message => {
     return {
         'raw': $,
-        'lines': _p.list.literal($.split("\n")),
+        'lines': _p.literal.list($.split("\n")),
 
     }
 }

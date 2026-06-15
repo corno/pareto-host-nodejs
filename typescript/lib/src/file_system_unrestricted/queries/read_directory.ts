@@ -66,7 +66,7 @@ export const $$: resources.filesystem_unrestricted.queries.read_directory = __qu
                     }))
                     on_value(
                         _p.dictionary.from.list(
-                            _p.list.literal(nodes2),
+                            _p.literal.list(nodes2),
                         ).convert(
                             ($) => $.id,
                             ($) => $.value,
