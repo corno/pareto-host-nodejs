@@ -1,5 +1,4 @@
-import * as _pq from 'pareto-core/dist/query/implementation'
-import * as _p from 'pareto-core/dist/assign'
+import * as p_a from 'pareto-core/dist/assign'
 
 import __query from 'pareto-core/dist/query/implementation/query'
 import __query_result from 'pareto-core/dist/query/implementation/__query_result'
@@ -48,7 +47,7 @@ export const $$: resources.execute_unrestricted.queries.query_executable = __que
             })
 
             child.on("error", err => {
-                on_error(_p.state.block(() => {
+                on_error(p_a.state.block(() => {
                     if (!(err instanceof Error)) {
                         throw new Error(`Expected an Error instance, got: ${typeof err}`)
                     }
@@ -64,9 +63,9 @@ export const $$: resources.execute_unrestricted.queries.query_executable = __que
                         'stdout': Message(stdoutData),
                     })
                 } else {
-                    on_error(_p.state.block(() => {
+                    on_error(p_a.state.block(() => {
                         return ['non zero exit code', {
-                            'exit code': exitCode === null ? _p.literal.not_set() : _p.literal.set(exitCode),
+                            'exit code': exitCode === null ? p_a.literal.not_set() : p_a.literal.set(exitCode),
                             'stderr': Message(stderrData),
                         }]
                     }))

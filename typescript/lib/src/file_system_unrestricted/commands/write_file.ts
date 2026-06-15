@@ -1,6 +1,5 @@
-import * as _pc from 'pareto-core/dist/command/implementation'
-import * as _p from 'pareto-core/dist/assign'
-import _p_text_from_list from 'pareto-core/dist/specials/text_from_list'
+import * as p_a from 'pareto-core/dist/assign'
+import p_text_from_list from 'pareto-core/dist/specials/text_from_list'
 
 import __command from 'pareto-core/dist/command/implementation/command'
 import __command_promise from 'pareto-core/dist/command/implementation/command_promise'
@@ -27,7 +26,7 @@ export const $$: resources.filesystem_unrestricted.commands.write_file = __comma
                     if (err) {
                         on_error({
                             'path': $p.path,
-                            'type': _p.state.block(() => {
+                            'type': p_a.state.block(() => {
                                 if (err.code === 'EACCES' || err.code === 'EPERM') {
                                     return ['permission denied', null]
                                 }
@@ -38,12 +37,12 @@ export const $$: resources.filesystem_unrestricted.commands.write_file = __comma
                     }
                     fs_writeFile(
                         t_path_to_text.Node_Path($p.path),
-                        _p_text_from_list($p.data, ($) => $),
+                        p_text_from_list($p.data, ($) => $),
                         (err) => {
                             if (err) {
                                 on_error({
                                     'path': $p.path,
-                                    'type': _p.state.block(() => {
+                                    'type': p_a.state.block(() => {
                                         if (err.code === 'EACCES' || err.code === 'EPERM') {
                                             return ['permission denied', null]
                                         }

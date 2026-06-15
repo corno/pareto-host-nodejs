@@ -1,5 +1,4 @@
-import * as _pc from 'pareto-core/dist/command/implementation'
-import * as _p from 'pareto-core/dist/assign'
+import * as p_a from 'pareto-core/dist/assign'
 
 import __command from 'pareto-core/dist/command/implementation/command'
 import __command_promise from 'pareto-core/dist/command/implementation/command_promise'
@@ -30,7 +29,7 @@ export const $$: resources.filesystem_unrestricted.commands.remove = __command((
                         } else {
                             on_error({
                                 'path': $p.path,
-                                'type': _p.state.block(() => {
+                                'type': p_a.state.block(() => {
                                     if (err.code === 'ENOENT') {
                                         return ['node does not exist', null]
                                     }

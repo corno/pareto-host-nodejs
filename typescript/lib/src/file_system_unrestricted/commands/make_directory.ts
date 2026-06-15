@@ -1,5 +1,4 @@
-import * as _pc from 'pareto-core/dist/command/implementation'
-import * as _p from 'pareto-core/dist/assign'
+import * as p_a from 'pareto-core/dist/assign'
 
 //interface
 import * as resources from "pareto-resources/dist/interface/resources"
@@ -27,7 +26,7 @@ export const $$: resources.filesystem_unrestricted.commands.make_directory = __c
                         if (err) {
                             on_error({
                                 'path': $p.path,
-                                'type': _p.state.block(() => {
+                                'type': p_a.state.block(() => {
                                     if (err.code === 'EEXIST') {
                                         return ['directory already exists', null]
                                     }
@@ -51,7 +50,7 @@ export const $$: resources.filesystem_unrestricted.commands.make_directory = __c
                         if (err) {
                             on_error({
                                 'path': $p.path,
-                                'type': _p.state.block(() => {
+                                'type': p_a.state.block(() => {
                                     if (err.code === 'EACCES' || err.code === 'EPERM') {
                                         return ['permission denied', null]
                                     }

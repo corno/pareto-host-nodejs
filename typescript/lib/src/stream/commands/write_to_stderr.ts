@@ -1,4 +1,3 @@
-import * as _pc from 'pareto-core/dist/command/implementation'
 
 import __command from 'pareto-core/dist/command/implementation/command'
 import __command_promise from 'pareto-core/dist/command/implementation/command_promise'

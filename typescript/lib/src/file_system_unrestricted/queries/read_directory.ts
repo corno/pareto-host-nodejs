@@ -1,6 +1,5 @@
-import * as _pq from 'pareto-core/dist/query/implementation'
-import * as _p from 'pareto-core/dist/assign'
-import _p_unreachable_code_path from 'pareto-core/dist/specials/unreachable_code_path'
+import * as p_a from 'pareto-core/dist/assign'
+import p_unreachable_code_path from 'pareto-core/dist/specials/unreachable_code_path'
 import * as p_di from 'pareto-core/dist/data/interface'
 
 import __query from 'pareto-core/dist/query/implementation/query'
@@ -24,59 +23,58 @@ type ID_Value_Pair<T extends p_di.Value> = {
 }
 
 
-export const $$: resources.filesystem_unrestricted.queries.read_directory = __query((
-    $p
-) => {
-    return __query_result((on_value, on_error) => {
-        fs_readdir(
-            t_path_to_text.Context_Path($p.path),
-            {
-                'encoding': 'utf-8',
-                'withFileTypes': true,
-            },
-            (err, nodes) => {
-                if (err) {
-                    on_error({
-                        'path': $p.path,
-                        'type': _p.state.block(() => {
-                            if (err.code === 'ENOENT') {
-                                return ['directory does not exist', null]
-                            }
-                            if (err.code === 'ENOTDIR' || err.code === 'EISDIR') {
-                                return ['node is not a directory', null]
-                            }
-                            throw new Error(`unhandled fs.readdir error code: ${err.code}`)
-                        })
-                    })
-                } else {
-                    const nodes2 = nodes.map(($): ID_Value_Pair<d_xxx.Result.D> => ({
-                        'id': $.name,
-                        'value': {
-                            'node type': $.isFile()
-                                ? ['file', null]
-                                : $.isDirectory() ? ['directory', null] : ['other', null],
-                            'context directory': $p.path,
-                            'path': t_path_to_path.create_node_path(
-                                $p.path,
-                                {
-                                    'node': $.name,
+export const $$: resources.filesystem_unrestricted.queries.read_directory = __query(
+    ($p) => {
+        return __query_result((on_value, on_error) => {
+            fs_readdir(
+                t_path_to_text.Context_Path($p.path),
+                {
+                    'encoding': 'utf-8',
+                    'withFileTypes': true,
+                },
+                (err, nodes) => {
+                    if (err) {
+                        on_error({
+                            'path': $p.path,
+                            'type': p_a.state.block(() => {
+                                if (err.code === 'ENOENT') {
+                                    return ['directory does not exist', null]
                                 }
+                                if (err.code === 'ENOTDIR' || err.code === 'EISDIR') {
+                                    return ['node is not a directory', null]
+                                }
+                                throw new Error(`unhandled fs.readdir error code: ${err.code}`)
+                            })
+                        })
+                    } else {
+                        const nodes2 = nodes.map(($): ID_Value_Pair<d_xxx.Result.D> => ({
+                            'id': $.name,
+                            'value': {
+                                'node type': $.isFile()
+                                    ? ['file', null]
+                                    : $.isDirectory() ? ['directory', null] : ['other', null],
+                                'context directory': $p.path,
+                                'path': t_path_to_path.create_node_path(
+                                    $p.path,
+                                    {
+                                        'node': $.name,
+                                    }
+                                )
+                            }
+                        }))
+                        on_value(
+                            p_a.dictionary.from.list(
+                                p_a.literal.list(nodes2),
+                            ).convert(
+                                ($) => $.id,
+                                ($) => $.value,
+                                {
+                                    duplicate_id: ($) => p_unreachable_code_path("the nodejs api guarantees that all items will have a unique name")
+                                },
                             )
-                        }
-                    }))
-                    on_value(
-                        _p.dictionary.from.list(
-                            _p.literal.list(nodes2),
-                        ).convert(
-                            ($) => $.id,
-                            ($) => $.value,
-                            {
-                                duplicate_id: ($) => _p_unreachable_code_path("the nodejs api guarantees that all items will have a unique name")
-                            },
                         )
-                    )
+                    }
                 }
-            }
-        )
+            )
+        })
     })
-})

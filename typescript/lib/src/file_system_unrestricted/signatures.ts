@@ -1,10 +1,9 @@
-import * as _pi from 'pareto-core/dist/interface'
-import * as _pi_temp from '../temp_core'
+import * as p_temp from '../temp_core'
 
 import * as resources from "pareto-resources/dist/interface/resources"
 
 
-export type Resources = _pi_temp.Resource_Collection<
+export type Resources = p_temp.Resource_Collection<
     {
         'chmod': resources.filesystem_unrestricted.commands.chmod
         'copy': resources.filesystem_unrestricted.commands.copy

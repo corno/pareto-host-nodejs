@@ -1,4 +1,4 @@
-import * as _pi from 'pareto-core/dist/interface'
+import * as p_i from 'pareto-core/dist/interface'
 
 export type Resource_Collection<Commands, Queries> = {
     'commands': Commands,

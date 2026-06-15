@@ -1,5 +1,5 @@
-import * as _pci from 'pareto-core/dist/command/interface'
-import * as _pqi from 'pareto-core/dist/query/interface'
+import * as p_ci from 'pareto-core/dist/command/interface'
+import * as p_qi from 'pareto-core/dist/query/interface'
 
 import * as d_filesystem_unrestricted from "./file_system_unrestricted/signatures"
 import * as d_filesystem_stream from "./stream/signatures"
@@ -14,5 +14,5 @@ export type Available_Standard_Resources = {
 }
 
 export type main = (
-    get_main: ($r: Available_Standard_Resources) => _pci.Command<d_main.Error, d_main.Parameters>,
+    get_main: ($r: Available_Standard_Resources) => p_ci.Command<d_main.Error, d_main.Parameters>,
 ) => void

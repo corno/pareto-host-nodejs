@@ -1,10 +1,7 @@
-import * as _pc from 'pareto-core/dist/command/implementation'
-import * as _p from 'pareto-core/dist/assign'
+import * as p_a from 'pareto-core/dist/assign'
 
 import __command from 'pareto-core/dist/command/implementation/command'
 import __command_promise from 'pareto-core/dist/command/implementation/command_promise'
-
-import _p_text_from_list from "pareto-core/dist/specials/text_from_list"
 
 //data types
 import * as d from "pareto-resources/dist/interface/generated/liana/schemas/fs_unrestricted_chmod/data"
@@ -73,7 +70,7 @@ export const $$: resources.filesystem_unrestricted.commands.chmod = __command((
                     if (err) {
                         on_error({
                             'path': $p.path,
-                            'type': _p.state.block(() => {
+                            'type': p_a.state.block(() => {
                                 if (err.code === 'ENOENT') {
                                     return ['path does not exist', null]
                                 }

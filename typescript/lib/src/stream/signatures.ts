@@ -1,12 +1,11 @@
-import * as _pi from 'pareto-core/dist/interface'
-import * as _pi_temp from '../temp_core'
+import * as p_temp from '../temp_core'
 
 
 import * as commands from "pareto-stream/dist/interface/commands"
 import * as queries from "pareto-stream/dist/interface/queries"
 
 
-export type Resources = _pi_temp.Resource_Collection<
+export type Resources = p_temp.Resource_Collection<
     {
         'log error': commands.commands.log_error
         'log': commands.commands.log

@@ -1,5 +1,4 @@
-import * as _pi from 'pareto-core/dist/interface'
-import * as _p from 'pareto-core/dist/assign'
+import * as p_a from 'pareto-core/dist/assign'
 
 import * as d_terminal_output from "pareto-resources/dist/interface/generated/liana/schemas/terminal_output/data"
 
@@ -9,7 +8,7 @@ import * as sh from "pareto-fountain-pen/dist/shorthands/prose"
 export const Message = ($: string): d_terminal_output.Message => {
     return {
         'raw': $,
-        'lines': _p.literal.list($.split("\n")),
+        'lines': p_a.literal.list($.split("\n")),
 
     }
 }

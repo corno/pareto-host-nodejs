@@ -1,5 +1,4 @@
-import * as _pq from 'pareto-core/dist/query/implementation'
-import * as _p from 'pareto-core/dist/assign'
+import * as p_a from 'pareto-core/dist/assign'
 
 import __query from 'pareto-core/dist/query/implementation/query'
 import __query_result from 'pareto-core/dist/query/implementation/__query_result'
@@ -25,7 +24,7 @@ export const $$: resources.filesystem_unrestricted.queries.stat_possible_node = 
                     } else {
                         on_error({
                             'path': $p,
-                            'type': _p.state.block(() => {
+                            'type': p_a.state.block(() => {
                                 throw new Error(`unhandled fs.stat error code: ${err.code}`)
                             })
                         })

@@ -1,5 +1,4 @@
-import * as _pq from 'pareto-core/dist/query/implementation'
-import * as _p from 'pareto-core/dist/assign'
+import * as p_a from 'pareto-core/dist/assign'
 import _p_list_from_text from 'pareto-core/dist/specials/list_from_text'
 
 import __query from 'pareto-core/dist/query/implementation/query'
@@ -23,7 +22,7 @@ export const $$: resources.filesystem_unrestricted.queries.read_file = __query((
                 if (err) {
                     on_error({
                         'path': $p,
-                        'type': _p.state.block(() => {
+                        'type': p_a.state.block(() => {
                             if (err.code === 'ENOENT') {
                                 return ['file does not exist', null]
                             }

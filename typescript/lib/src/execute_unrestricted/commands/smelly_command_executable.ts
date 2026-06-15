@@ -1,6 +1,5 @@
-import * as _pc from 'pareto-core/dist/command/implementation'
 
-import * as _p from 'pareto-core/dist/assign'
+import * as p_a from 'pareto-core/dist/assign'
 
 import __command from 'pareto-core/dist/command/implementation/command'
 import __command_promise from 'pareto-core/dist/command/implementation/command_promise'
@@ -65,7 +64,7 @@ export const $$: resources.execute_unrestricted.commands.smelly_command_executab
                     on_success()
                 } else {
                     on_error(['non zero exit code', {
-                        'exit code': exitCode === null ? _p.literal.not_set() : _p.literal.set(exitCode),
+                        'exit code': exitCode === null ? p_a.literal.not_set() : p_a.literal.set(exitCode),
                         'stderr': Message(stderrData),
                         'stdout': Message(stdoutData),
                     }])

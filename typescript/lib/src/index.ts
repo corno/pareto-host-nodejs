@@ -1,5 +1,4 @@
-import * as _pi from 'pareto-core/dist/interface'
-import * as _p from 'pareto-core/dist/assign'
+import * as p_a from 'pareto-core/dist/assign'
 
 import { main } from './signatures'
 
@@ -29,7 +28,7 @@ export const run_main_command: main = (
         //'filesystem sandboxed': r_filesystem_sandboxed,
     }).execute(
         {
-            'arguments': _p.literal.list(process.argv.slice(2))
+            'arguments': p_a.literal.list(process.argv.slice(2))
         },
         ($) => $,
     ).__start(

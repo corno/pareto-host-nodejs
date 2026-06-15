@@ -1,5 +1,4 @@
-import * as _pc from 'pareto-core/dist/command/implementation'
-import _p_text_from_list from 'pareto-core/dist/specials/text_from_list'
+import p_text_from_list from 'pareto-core/dist/specials/text_from_list'
 
 //interface
 import * as resources from "pareto-stream/dist/interface/commands"
@@ -16,7 +15,7 @@ export const $$: resources.commands.log = __command((
     return __command_promise({
         'execute': (on_success) => {
             process.stdout.write(
-                _p_text_from_list(
+                p_text_from_list(
                     t_fp_to_list_of_characters.Paragraph(
                         $p.message,
                         {
