@@ -14,4 +14,4 @@ export type Available_Standard_Resources = {
 
 export type main = (
     get_main: ($r: Available_Standard_Resources) => p_ci.Command<d_main.Error, d_main.Parameters>,
-) => void
+) => undefined
