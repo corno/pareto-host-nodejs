@@ -1,7 +1,7 @@
 import * as p_a from 'pareto-core/dist/assign'
 
-import __command from 'pareto-core/dist/implementation/command/command'
-import __command_promise from 'pareto-core/dist/implementation/command/command_promise'
+import command from 'pareto-core/dist/implementation/command/command'
+import command_promise from 'pareto-core/dist/implementation/command/command_promise'
 
 //interface
 import * as resources from "pareto-resources/dist/interface/resources"
@@ -10,10 +10,10 @@ import * as resources from "pareto-resources/dist/interface/resources"
 import { cp as fs_cp } from "fs"
 import * as t_path_to_text from "pareto-resources/dist/implementation/manual/transformers/unrestricted_path/text"
 
-export const $$: resources.filesystem_unrestricted.commands.copy = __command((
+export const $$: resources.filesystem_unrestricted.commands.copy = command((
     $p,
 ) => {
-    return __command_promise({
+    return command_promise({
         'execute': (on_success, on_error) => {
             const options: any = {}
             if ($p.options.recursive) {

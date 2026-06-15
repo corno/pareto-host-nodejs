@@ -1,8 +1,8 @@
 import * as p_a from 'pareto-core/dist/assign'
 import p_text_from_list from 'pareto-core/dist/implementation/specials/text_from_list'
 
-import __command from 'pareto-core/dist/implementation/command/command'
-import __command_promise from 'pareto-core/dist/implementation/command/command_promise'
+import command from 'pareto-core/dist/implementation/command/command'
+import command_promise from 'pareto-core/dist/implementation/command/command_promise'
 
 //interface
 import * as resources from "pareto-resources/dist/interface/resources"
@@ -11,10 +11,10 @@ import * as resources from "pareto-resources/dist/interface/resources"
 import { mkdir as fs_mkdir, writeFile as fs_writeFile } from "fs"
 import * as t_path_to_text from "pareto-resources/dist/implementation/manual/transformers/unrestricted_path/text"
 
-export const $$: resources.filesystem_unrestricted.commands.write_file = __command((
+export const $$: resources.filesystem_unrestricted.commands.write_file = command((
     $p,
 ) => {
-    return __command_promise({
+    return command_promise({
         'execute': (on_success, on_error) => {
 
             fs_mkdir(

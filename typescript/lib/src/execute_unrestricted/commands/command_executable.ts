@@ -1,7 +1,7 @@
 import * as p_a from 'pareto-core/dist/assign'
 
-import __command from 'pareto-core/dist/implementation/command/command'
-import __command_promise from 'pareto-core/dist/implementation/command/command_promise'
+import command from 'pareto-core/dist/implementation/command/command'
+import command_promise from 'pareto-core/dist/implementation/command/command_promise'
 
 //interface
 import * as resources from "pareto-resources/dist/interface/resources"
@@ -16,11 +16,11 @@ import * as t_path_to_text from "pareto-resources/dist/implementation/manual/tra
  * The executable being executed is assumed to only cause side effects
  * and not return any meaningful data, std::out is therefor ignored
  */
-export const $$: resources.execute_unrestricted.commands.command_executable = __command((
+export const $$: resources.execute_unrestricted.commands.command_executable = command((
     $p,
 ) => {
     const args = $p.args.__get_raw_copy()
-    return __command_promise({
+    return command_promise({
         'execute': (on_success, on_error) => {
 
             let cwd: string | undefined = undefined

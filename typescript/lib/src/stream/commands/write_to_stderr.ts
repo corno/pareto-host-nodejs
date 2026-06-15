@@ -1,14 +1,14 @@
 
-import __command from 'pareto-core/dist/implementation/command/command'
-import __command_promise from 'pareto-core/dist/implementation/command/command_promise'
+import command from 'pareto-core/dist/implementation/command/command'
+import command_promise from 'pareto-core/dist/implementation/command/command_promise'
 
 //interface
 import * as resources from "pareto-stream/dist/interface/commands"
 
-export const $$: resources.commands.write_to_stderr = __command( (
+export const $$: resources.commands.write_to_stderr = command( (
     $p,
 ) => {
-    return __command_promise({
+    return command_promise({
         'execute': (on_success) => {
             process.stderr.write($p.data)
             on_success()

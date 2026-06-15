@@ -1,7 +1,7 @@
 import * as p_a from 'pareto-core/dist/assign'
 
 import __query from 'pareto-core/dist/implementation/query/query'
-import __query_result from 'pareto-core/dist/implementation/query/__query_result'
+import query_result from 'pareto-core/dist/implementation/query/query_result'
 
 //interface
 import * as resources from "pareto-resources/dist/interface/resources"
@@ -20,7 +20,7 @@ import * as t_path_to_text from "pareto-resources/dist/implementation/manual/tra
 export const $$: resources.execute_unrestricted.queries.query_executable = __query(
     ($p,) => {
         const args = $p.args.__get_raw_copy()
-        return __query_result((on_value, on_error) => {
+        return query_result((on_value, on_error) => {
 
             let cwd: string | undefined = undefined
             $p['working directory'].__extract_data(

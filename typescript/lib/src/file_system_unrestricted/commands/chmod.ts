@@ -1,7 +1,7 @@
 import * as p_a from 'pareto-core/dist/assign'
 
-import __command from 'pareto-core/dist/implementation/command/command'
-import __command_promise from 'pareto-core/dist/implementation/command/command_promise'
+import command from 'pareto-core/dist/implementation/command/command'
+import command_promise from 'pareto-core/dist/implementation/command/command_promise'
 
 //data types
 import * as d from "pareto-resources/dist/interface/generated/liana/schemas/fs_unrestricted_chmod/data"
@@ -27,10 +27,10 @@ function permissions_to_octal(permissions: d.Permissions): number {
     return value
 }
 
-export const $$: resources.filesystem_unrestricted.commands.chmod = __command((
+export const $$: resources.filesystem_unrestricted.commands.chmod = command((
     $p,
 ) => {
-    return __command_promise({
+    return command_promise({
         'execute': (on_success, on_error) => {
             // Convert permissions structure to numeric mode
             let mode = 0
