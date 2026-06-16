@@ -13,24 +13,8 @@ import * as resources from "pareto-resources/dist/interface/resources"
 import { chmod as fs_chmod } from "fs"
 import * as t_path_to_text from "pareto-resources/dist/implementation/manual/transformers/unrestricted_path/text"
 
-function permissions_to_octal(permissions: d.Permissions): number {
-    let value = 0
-    if (permissions.read) {
-        value += 4
-    }
-    if (permissions.write) {
-        value += 2
-    }
-    if (permissions.execute) {
-        value += 1
-    }
-    return value
-}
-
-export const $$: resources.filesystem_unrestricted.commands.chmod = command((
-    $p,
-) => {
-    return command_promise({
+export const $$: resources.filesystem_unrestricted.commands.chmod = command(
+    ($p) => command_promise({
         'execute': (on_success, on_error) => {
             // Convert permissions structure to numeric mode
             let mode = 0
@@ -59,6 +43,21 @@ export const $$: resources.filesystem_unrestricted.commands.chmod = command((
             }
 
             // Owner, group, others
+
+            function permissions_to_octal(permissions: d.Permissions): number {
+                let value = 0
+                if (permissions.read) {
+                    value += 4
+                }
+                if (permissions.write) {
+                    value += 2
+                }
+                if (permissions.execute) {
+                    value += 1
+                }
+                return value
+            }
+
             mode += permissions_to_octal($p.mode.owner) * 0o100
             mode += permissions_to_octal($p.mode.group) * 0o10
             mode += permissions_to_octal($p.mode.others) * 0o1
@@ -87,4 +86,4 @@ export const $$: resources.filesystem_unrestricted.commands.chmod = command((
             )
         }
     })
-})
+)

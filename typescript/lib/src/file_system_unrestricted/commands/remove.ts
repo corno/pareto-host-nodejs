@@ -11,10 +11,8 @@ import { rm as fs_rm } from "fs"
 import * as t_path_to_text from "pareto-resources/dist/implementation/manual/transformers/unrestricted_path/text"
 
 
-export const $$: resources.filesystem_unrestricted.commands.remove = command((
-    $p,
-) => {
-    return command_promise({
+export const $$: resources.filesystem_unrestricted.commands.remove = command(
+    ($p) =>  command_promise({
         'execute': (on_success, on_error) => {
             fs_rm(
                 t_path_to_text.Context_Path($p.path),
@@ -53,4 +51,4 @@ export const $$: resources.filesystem_unrestricted.commands.remove = command((
             )
         }
     })
-})
+)

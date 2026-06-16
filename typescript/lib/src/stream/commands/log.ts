@@ -9,10 +9,8 @@ import * as t_fp_to_list_of_characters from "pareto-fountain-pen/dist/implementa
 import command from 'pareto-core/dist/implementation/command/command'
 import command_promise from 'pareto-core/dist/implementation/command/command_promise'
 
-export const $$: resources.commands.log = command((
-    $p,
-) => {
-    return command_promise({
+export const $$: resources.commands.log = command(
+    ($p) =>  command_promise({
         'execute': (on_success) => {
             process.stdout.write(
                 p_text_from_list(
@@ -29,4 +27,4 @@ export const $$: resources.commands.log = command((
             on_success()
         }
     })
-})
+)

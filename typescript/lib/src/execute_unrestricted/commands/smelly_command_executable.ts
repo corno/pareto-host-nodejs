@@ -20,11 +20,8 @@ import * as t_path_to_text from "pareto-resources/dist/implementation/manual/tra
  * The executable being executed is assumed to only cause side effects
  * and not return any meaningful data, std::out is therefor ignored
  */
-export const $$: resources.execute_unrestricted.commands.smelly_command_executable = command((
-    $p,
-) => {
-    const args = $p.args.__get_raw_copy()
-    return command_promise({
+export const $$: resources.execute_unrestricted.commands.smelly_command_executable = command(
+    ($p) => command_promise({
         'execute': (on_success, on_error) => {
 
             let cwd: string | undefined = undefined
@@ -35,11 +32,15 @@ export const $$: resources.execute_unrestricted.commands.smelly_command_executab
                 () => { },
             )
 
-            const child = spawn($p.program, args, {
-                'cwd': cwd,
-                shell: false, // direct execution, no shell
-                stdio: ['pipe', 'pipe', 'pipe'], // explicitly pipe stdin, stdout, stderr
-            })
+            const child = spawn(
+                $p.program,
+                $p.args.__get_raw_copy(),
+                {
+                    'cwd': cwd,
+                    shell: false, // direct execution, no shell
+                    stdio: ['pipe', 'pipe', 'pipe'], // explicitly pipe stdin, stdout, stderr
+                }
+            )
 
             let stderrData = ""
 
@@ -72,4 +73,4 @@ export const $$: resources.execute_unrestricted.commands.smelly_command_executab
             })
         }
     })
-})
+)

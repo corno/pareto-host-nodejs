@@ -8,10 +8,8 @@ import * as resources from "pareto-stream/dist/interface/commands"
 //dependencies
 import * as t_fp_to_list_of_characters from "pareto-fountain-pen/dist/implementation/manual/transformers/prose/list_of_characters"
 
-export const $$: resources.commands.log_error = command((
-    $p,
-) => {
-    return command_promise({
+export const $$: resources.commands.log_error = command(
+    ($p) =>  command_promise({
         'execute': (on_success) => {
             process.stderr.write(
                 p_text_from_list(
@@ -28,4 +26,4 @@ export const $$: resources.commands.log_error = command((
             on_success()
         }
     })
-})
+)

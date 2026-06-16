@@ -16,11 +16,8 @@ import * as t_path_to_text from "pareto-resources/dist/implementation/manual/tra
  * The executable being executed is assumed to only cause side effects
  * and not return any meaningful data, std::out is therefor ignored
  */
-export const $$: resources.execute_unrestricted.commands.command_executable = command((
-    $p,
-) => {
-    const args = $p.args.__get_raw_copy()
-    return command_promise({
+export const $$: resources.execute_unrestricted.commands.command_executable = command(
+    ($p) => command_promise({
         'execute': (on_success, on_error) => {
 
             let cwd: string | undefined = undefined
@@ -31,10 +28,14 @@ export const $$: resources.execute_unrestricted.commands.command_executable = co
                 () => { },
             )
 
-            const child = spawn($p.program, args, {
-                'cwd': cwd,
-                'shell': false, // ✅ direct execution, no shell, no quoting, no escaping, no env var expansion, no globbing
-            })
+            const child = spawn(
+                $p.program,
+                $p.args.__get_raw_copy(),
+                {
+                    'cwd': cwd,
+                    'shell': false, // ✅ direct execution, no shell, no quoting, no escaping, no env var expansion, no globbing
+                }
+            )
 
             let stderrData = ""
 
@@ -58,4 +59,4 @@ export const $$: resources.execute_unrestricted.commands.command_executable = co
             })
         }
     })
-})
+)

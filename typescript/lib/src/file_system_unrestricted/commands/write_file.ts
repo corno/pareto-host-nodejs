@@ -11,10 +11,8 @@ import * as resources from "pareto-resources/dist/interface/resources"
 import { mkdir as fs_mkdir, writeFile as fs_writeFile } from "fs"
 import * as t_path_to_text from "pareto-resources/dist/implementation/manual/transformers/unrestricted_path/text"
 
-export const $$: resources.filesystem_unrestricted.commands.write_file = command((
-    $p,
-) => {
-    return command_promise({
+export const $$: resources.filesystem_unrestricted.commands.write_file = command(
+    ($p) => command_promise({
         'execute': (on_success, on_error) => {
 
             fs_mkdir(
@@ -58,4 +56,4 @@ export const $$: resources.filesystem_unrestricted.commands.write_file = command
             )
         }
     })
-})
+)

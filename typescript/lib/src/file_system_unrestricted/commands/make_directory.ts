@@ -11,10 +11,8 @@ import { mkdir as fs_mkdir } from "fs"
 import { rm as fs_remove } from "fs"
 import * as t_path_to_text from "pareto-resources/dist/implementation/manual/transformers/unrestricted_path/text"
 
-export const $$: resources.filesystem_unrestricted.commands.make_directory = command((
-    $p,
-) => {
-    return command_promise({
+export const $$: resources.filesystem_unrestricted.commands.make_directory = command(
+    ($p) => command_promise({
         'execute': (on_success, on_error) => {
             const make_directory = () => {
                 fs_mkdir(
@@ -68,4 +66,4 @@ export const $$: resources.filesystem_unrestricted.commands.make_directory = com
             }
         }
     })
-})
+)
