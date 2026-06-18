@@ -1,4 +1,4 @@
-import * as p_a from 'pareto-core/dist/assign'
+import p_change_context from 'pareto-core/dist/implementation/specials/change_context'
 
 //interface
 import * as resources from "pareto-resources/dist/interface/resources"
@@ -24,7 +24,7 @@ export const $$: resources.filesystem_unrestricted.commands.make_directory = com
                         if (err) {
                             on_error({
                                 'path': $p.path,
-                                'type': p_a.state.block(() => {
+                                'type': p_change_context(null, () => {
                                     if (err.code === 'EEXIST') {
                                         return ['directory already exists', null]
                                     }
@@ -48,7 +48,7 @@ export const $$: resources.filesystem_unrestricted.commands.make_directory = com
                         if (err) {
                             on_error({
                                 'path': $p.path,
-                                'type': p_a.state.block(() => {
+                                'type': p_change_context(null, () => {
                                     if (err.code === 'EACCES' || err.code === 'EPERM') {
                                         return ['permission denied', null]
                                     }

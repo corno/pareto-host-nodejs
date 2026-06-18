@@ -1,4 +1,4 @@
-import * as p_a from 'pareto-core/dist/assign'
+import p_change_context from 'pareto-core/dist/implementation/specials/change_context'
 import p_text_from_list from 'pareto-core/dist/implementation/specials/text_from_list'
 
 import command from 'pareto-core/dist/implementation/command/command'
@@ -24,7 +24,7 @@ export const $$: resources.filesystem_unrestricted.commands.write_file = command
                     if (err) {
                         on_error({
                             'path': $p.path,
-                            'type': p_a.state.block(() => {
+                            'type': p_change_context(null, () => {
                                 if (err.code === 'EACCES' || err.code === 'EPERM') {
                                     return ['permission denied', null]
                                 }
@@ -40,7 +40,7 @@ export const $$: resources.filesystem_unrestricted.commands.write_file = command
                             if (err) {
                                 on_error({
                                     'path': $p.path,
-                                    'type': p_a.state.block(() => {
+                                    'type': p_change_context(null, () => {
                                         if (err.code === 'EACCES' || err.code === 'EPERM') {
                                             return ['permission denied', null]
                                         }

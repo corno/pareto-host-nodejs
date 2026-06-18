@@ -1,4 +1,6 @@
-import * as p_a from 'pareto-core/dist/assign'
+import * as p_ from 'pareto-core/dist/implementation/refiner'
+import p_change_context from 'pareto-core/dist/implementation/specials/change_context'
+
 import p_unreachable_code_path from 'pareto-core/dist/implementation/specials/unreachable_code_path'
 import * as p_di from 'pareto-core/dist/interface/data'
 
@@ -36,7 +38,7 @@ export const $$: resources.filesystem_unrestricted.queries.read_directory = __qu
                     if (err) {
                         on_error({
                             'path': $p.path,
-                            'type': p_a.state.block(() => {
+                            'type': p_change_context(null, () => {
                                 if (err.code === 'ENOENT') {
                                     return ['directory does not exist', null]
                                 }
@@ -63,9 +65,9 @@ export const $$: resources.filesystem_unrestricted.queries.read_directory = __qu
                             }
                         }))
                         on_value(
-                            p_a.dictionary.from.list(
-                                p_a.literal.list(nodes2),
-                            ).convert(
+                            p_.from.list(
+                                p_.literal.list(nodes2),
+                            ).convert_to_dictionary(
                                 ($) => $.id,
                                 ($) => $.value,
                                 {

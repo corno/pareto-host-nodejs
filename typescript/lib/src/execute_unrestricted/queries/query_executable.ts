@@ -1,4 +1,5 @@
 import * as p_a from 'pareto-core/dist/assign'
+import p_change_context from 'pareto-core/dist/implementation/specials/change_context'
 
 import __query from 'pareto-core/dist/implementation/query/query'
 import query_result from 'pareto-core/dist/implementation/query/query_result'
@@ -47,7 +48,7 @@ export const $$: resources.execute_unrestricted.queries.query_executable = __que
             })
 
             child.on("error", err => {
-                on_error(p_a.state.block(() => {
+                on_error(p_change_context(null, () => {
                     if (!(err instanceof Error)) {
                         throw new Error(`Expected an Error instance, got: ${typeof err}`)
                     }
@@ -63,7 +64,7 @@ export const $$: resources.execute_unrestricted.queries.query_executable = __que
                         'stdout': Message(stdoutData),
                     })
                 } else {
-                    on_error(p_a.state.block(() => {
+                    on_error(p_change_context(null, () => {
                         return ['non zero exit code', {
                             'exit code': exitCode === null ? p_a.literal.not_set() : p_a.literal.set(exitCode),
                             'stderr': Message(stderrData),

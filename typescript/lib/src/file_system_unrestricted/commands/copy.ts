@@ -1,4 +1,4 @@
-import * as p_a from 'pareto-core/dist/assign'
+import p_change_context from 'pareto-core/dist/implementation/specials/change_context'
 
 import command from 'pareto-core/dist/implementation/command/command'
 import command_promise from 'pareto-core/dist/implementation/command/command_promise'
@@ -32,7 +32,7 @@ export const $$: resources.filesystem_unrestricted.commands.copy = command(
                     if (err) {
                         on_error({
                             'path': $p.source,
-                            'type': p_a.state.block(() => {
+                            'type': p_change_context(null, () => {
                                 if (err.code === 'ENOENT') {
                                     return ['source does not exist', null]
                                 }

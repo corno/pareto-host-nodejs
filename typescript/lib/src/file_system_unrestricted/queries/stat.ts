@@ -1,4 +1,4 @@
-import * as p_a from 'pareto-core/dist/assign'
+import p_change_context from 'pareto-core/dist/implementation/specials/change_context'
 
 import __query from 'pareto-core/dist/implementation/query/query'
 import query_result from 'pareto-core/dist/implementation/query/query_result'
@@ -21,7 +21,7 @@ export const $$: resources.filesystem_unrestricted.queries.stat = __query((
                 if (err) {
                     on_error({
                         'path': $p,
-                        'type': p_a.state.block(() => {
+                        'type': p_change_context(null, () => {
                             if (err.code === 'ENOENT') {
                                 return ['node does not exist', null]
                             }
