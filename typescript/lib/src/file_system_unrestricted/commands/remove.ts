@@ -1,7 +1,7 @@
 import p_change_context from 'pareto-core/dist/implementation/specials/change_context'
 
-import command from 'pareto-core/dist/implementation/command/command'
-import command_promise from 'pareto-core/dist/implementation/command/command_promise'
+import p_command from 'pareto-core/dist/implementation/command/command'
+import p_command_promise from 'pareto-core/dist/implementation/command/command_promise'
 
 //interface
 import * as resources from "pareto-resources/dist/interface/resources"
@@ -11,8 +11,8 @@ import { rm as fs_rm } from "fs"
 import * as t_path_to_text from "pareto-resources/dist/implementation/manual/transformers/unrestricted_path/text"
 
 
-export const $$: resources.filesystem_unrestricted.commands.remove = command(
-    ($p) =>  command_promise({
+export const $$: resources.filesystem_unrestricted.commands.remove = p_command(
+    ($p) => p_command_promise({
         'execute': (on_success, on_error) => {
             fs_rm(
                 t_path_to_text.Context_Path($p.path),

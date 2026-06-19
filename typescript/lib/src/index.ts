@@ -1,4 +1,4 @@
-import * as p_a from 'pareto-core/dist/assign'
+import * as p_ from 'pareto-core/dist/implementation/refiner'
 
 import { main } from './signatures'
 
@@ -28,7 +28,7 @@ export const run_main_command: main = (
         //'filesystem sandboxed': r_filesystem_sandboxed,
     }).execute(
         {
-            'arguments': p_a.literal.list(process.argv.slice(2))
+            'arguments': p_.literal.list(process.argv.slice(2))
         },
         ($) => $,
     ).__start(

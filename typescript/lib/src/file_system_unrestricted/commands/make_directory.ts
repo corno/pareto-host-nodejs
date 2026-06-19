@@ -3,16 +3,16 @@ import p_change_context from 'pareto-core/dist/implementation/specials/change_co
 //interface
 import * as resources from "pareto-resources/dist/interface/resources"
 
-import command from 'pareto-core/dist/implementation/command/command'
-import command_promise from 'pareto-core/dist/implementation/command/command_promise'
+import p_command from 'pareto-core/dist/implementation/command/command'
+import p_command_promise from 'pareto-core/dist/implementation/command/command_promise'
 
 //dependencies
 import { mkdir as fs_mkdir } from "fs"
 import { rm as fs_remove } from "fs"
 import * as t_path_to_text from "pareto-resources/dist/implementation/manual/transformers/unrestricted_path/text"
 
-export const $$: resources.filesystem_unrestricted.commands.make_directory = command(
-    ($p) => command_promise({
+export const $$: resources.filesystem_unrestricted.commands.make_directory = p_command(
+    ($p) => p_command_promise({
         'execute': (on_success, on_error) => {
             const make_directory = () => {
                 fs_mkdir(

@@ -1,7 +1,7 @@
 import p_change_context from 'pareto-core/dist/implementation/specials/change_context'
 
-import command from 'pareto-core/dist/implementation/command/command'
-import command_promise from 'pareto-core/dist/implementation/command/command_promise'
+import p_command from 'pareto-core/dist/implementation/command/command'
+import p_command_promise from 'pareto-core/dist/implementation/command/command_promise'
 
 //data types
 import * as d from "pareto-resources/dist/interface/generated/liana/schemas/fs_unrestricted_chmod/data"
@@ -13,8 +13,8 @@ import * as resources from "pareto-resources/dist/interface/resources"
 import { chmod as fs_chmod } from "fs"
 import * as t_path_to_text from "pareto-resources/dist/implementation/manual/transformers/unrestricted_path/text"
 
-export const $$: resources.filesystem_unrestricted.commands.chmod = command(
-    ($p) => command_promise({
+export const $$: resources.filesystem_unrestricted.commands.chmod = p_command(
+    ($p) => p_command_promise({
         'execute': (on_success, on_error) => {
             // Convert permissions structure to numeric mode
             let mode = 0

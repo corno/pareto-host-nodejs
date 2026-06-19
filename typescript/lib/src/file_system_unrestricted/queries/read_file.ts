@@ -1,8 +1,9 @@
-import p_change_context from 'pareto-core/dist/implementation/specials/change_context'
-import _p_list_from_text from 'pareto-core/dist/implementation/specials/list_from_text'
 
-import __query from 'pareto-core/dist/implementation/query/query'
-import query_result from 'pareto-core/dist/implementation/query/query_result'
+import p_query from 'pareto-core/dist/implementation/query/query'
+import p_query_result from 'pareto-core/dist/implementation/query/query_result'
+import p_change_context from 'pareto-core/dist/implementation/specials/change_context'
+import p_list_from_text from 'pareto-core/dist/implementation/specials/list_from_text'
+
 
 //interface
 import * as resources from "pareto-resources/dist/interface/resources"
@@ -11,10 +12,10 @@ import * as resources from "pareto-resources/dist/interface/resources"
 import * as t_path_to_text from "pareto-resources/dist/implementation/manual/transformers/unrestricted_path/text"
 import { readFile as fs_readFile } from "fs"
 
-export const $$: resources.filesystem_unrestricted.queries.read_file = __query((
+export const $$: resources.filesystem_unrestricted.queries.read_file = p_query((
     $p
 ) => {
-    return query_result((on_value, on_error) => {
+    return p_query_result((on_value, on_error) => {
         fs_readFile(
             t_path_to_text.Node_Path($p),
             { 'encoding': 'utf-8' },
@@ -42,7 +43,7 @@ export const $$: resources.filesystem_unrestricted.queries.read_file = __query((
                         })
                     })
                 } else {
-                    on_value(_p_list_from_text(
+                    on_value(p_list_from_text(
                         data,
                         ($) => $
                     ))

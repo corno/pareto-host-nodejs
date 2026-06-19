@@ -1,7 +1,6 @@
+import p_query from 'pareto-core/dist/implementation/query/query'
+import p_query_result from 'pareto-core/dist/implementation/query/query_result'
 import p_change_context from 'pareto-core/dist/implementation/specials/change_context'
-
-import __query from 'pareto-core/dist/implementation/query/query'
-import query_result from 'pareto-core/dist/implementation/query/query_result'
 
 
 //interface
@@ -11,10 +10,10 @@ import * as resources from "pareto-resources/dist/interface/resources"
 import { stat as fs_stat } from "fs"
 import * as t_path_to_text from "pareto-resources/dist/implementation/manual/transformers/unrestricted_path/text"
 
-export const $$: resources.filesystem_unrestricted.queries.stat = __query((
+export const $$: resources.filesystem_unrestricted.queries.stat = p_query((
     $p
 ) => {
-    return query_result((on_value, on_error) => {
+    return p_query_result((on_value, on_error) => {
         fs_stat(
             t_path_to_text.Node_Path($p),
             (err, stats) => {

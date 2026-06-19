@@ -1,8 +1,7 @@
-import * as p_a from 'pareto-core/dist/assign'
+import * as p_ from 'pareto-core/dist/implementation/query'
 import p_change_context from 'pareto-core/dist/implementation/specials/change_context'
-
-import __query from 'pareto-core/dist/implementation/query/query'
-import query_result from 'pareto-core/dist/implementation/query/query_result'
+import p_query from 'pareto-core/dist/implementation/query/query'
+import p_query_result from 'pareto-core/dist/implementation/query/query_result'
 
 //interface
 import * as resources from "pareto-resources/dist/interface/resources"
@@ -18,10 +17,10 @@ import * as t_path_to_text from "pareto-resources/dist/implementation/manual/tra
  * The executable being executed is assumed to be side effect free
  * There is no way to give guarantees about that though
  */
-export const $$: resources.execute_unrestricted.queries.query_executable = __query(
+export const $$: resources.execute_unrestricted.queries.query_executable = p_query(
     ($p,) => {
         const args = $p.args.__get_raw_copy()
-        return query_result((on_value, on_error) => {
+        return p_query_result((on_value, on_error) => {
 
             let cwd: string | undefined = undefined
             $p['working directory'].__extract_data(
@@ -66,7 +65,7 @@ export const $$: resources.execute_unrestricted.queries.query_executable = __que
                 } else {
                     on_error(p_change_context(null, () => {
                         return ['non zero exit code', {
-                            'exit code': exitCode === null ? p_a.literal.not_set() : p_a.literal.set(exitCode),
+                            'exit code': exitCode === null ? p_.literal.not_set() : p_.literal.set(exitCode),
                             'stderr': Message(stderrData),
                         }]
                     }))

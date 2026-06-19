@@ -1,4 +1,4 @@
-import * as p_a from 'pareto-core/dist/assign'
+import * as p_a from 'pareto-core/dist/implementation/refiner'
 
 import * as d_terminal_output from "pareto-resources/dist/interface/generated/liana/schemas/terminal_output/data"
 

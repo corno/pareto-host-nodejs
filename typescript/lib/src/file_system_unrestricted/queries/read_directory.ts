@@ -1,11 +1,11 @@
 import * as p_ from 'pareto-core/dist/implementation/refiner'
+import * as p_di from 'pareto-core/dist/interface/data'
 import p_change_context from 'pareto-core/dist/implementation/specials/change_context'
 
 import p_unreachable_code_path from 'pareto-core/dist/implementation/specials/unreachable_code_path'
-import * as p_di from 'pareto-core/dist/interface/data'
 
-import __query from 'pareto-core/dist/implementation/query/query'
-import query_result from 'pareto-core/dist/implementation/query/query_result'
+import p_query from 'pareto-core/dist/implementation/query/query'
+import p_query_result from 'pareto-core/dist/implementation/query/query_result'
 
 
 //interface
@@ -25,9 +25,9 @@ type ID_Value_Pair<T extends p_di.Value> = {
 }
 
 
-export const $$: resources.filesystem_unrestricted.queries.read_directory = __query(
+export const $$: resources.filesystem_unrestricted.queries.read_directory = p_query(
     ($p) => {
-        return query_result((on_value, on_error) => {
+        return p_query_result((on_value, on_error) => {
             fs_readdir(
                 t_path_to_text.Context_Path($p.path),
                 {
