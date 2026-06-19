@@ -1,8 +1,8 @@
 import * as p_ from 'pareto-core/dist/implementation/refiner'
 import * as p_di from 'pareto-core/dist/interface/data'
-import p_change_context from 'pareto-core/dist/implementation/specials/change_context'
+import p_change_context from 'pareto-core/dist/implementation/refiner/specials/change_context'
 
-import p_unreachable_code_path from 'pareto-core/dist/implementation/specials/unreachable_code_path'
+import p_unreachable_code_path from 'pareto-core/dist/implementation/transformer/specials/unreachable_code_path'
 
 import p_query from 'pareto-core/dist/implementation/query/query'
 import p_query_result from 'pareto-core/dist/implementation/query/query_result'

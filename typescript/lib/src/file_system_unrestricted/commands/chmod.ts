@@ -1,4 +1,4 @@
-import p_change_context from 'pareto-core/dist/implementation/specials/change_context'
+import p_change_context from 'pareto-core/dist/implementation/refiner/specials/change_context'
 
 import p_command from 'pareto-core/dist/implementation/command/command'
 import p_command_promise from 'pareto-core/dist/implementation/command/command_promise'

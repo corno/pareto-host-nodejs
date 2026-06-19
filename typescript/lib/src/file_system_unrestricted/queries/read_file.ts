@@ -1,8 +1,8 @@
 
 import p_query from 'pareto-core/dist/implementation/query/query'
 import p_query_result from 'pareto-core/dist/implementation/query/query_result'
-import p_change_context from 'pareto-core/dist/implementation/specials/change_context'
-import p_list_from_text from 'pareto-core/dist/implementation/specials/list_from_text'
+import p_change_context from 'pareto-core/dist/implementation/refiner/specials/change_context'
+import p_list_from_text from 'pareto-core/dist/implementation/refiner/specials/list_from_text'
 
 
 //interface

@@ -1,4 +1,4 @@
-import p_text_from_list from 'pareto-core/dist/implementation/specials/text_from_list'
+import p_text_from_list from 'pareto-core/dist/implementation/transformer/specials/text_from_list'
 import p_command from 'pareto-core/dist/implementation/command/command'
 import p_command_promise from 'pareto-core/dist/implementation/command/command_promise'
 
