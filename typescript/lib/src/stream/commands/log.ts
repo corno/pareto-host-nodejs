@@ -6,8 +6,8 @@ import * as resources from "pareto-stream/dist/interface/commands"
 //dependencies
 import * as t_fp_to_list_of_characters from "pareto-fountain-pen/dist/implementation/manual/transformers/prose/list_of_characters"
 
-import p_command from 'pareto-core/dist/implementation/command/command'
-import p_command_promise from 'pareto-core/dist/implementation/command/command_promise'
+import p_command from 'pareto-core/dist/implementation/command/__internal/command'
+import p_command_promise from 'pareto-core/dist/implementation/command/__internal/command_promise'
 
 export const $$: resources.commands.log = p_command(
     ($p) => p_command_promise({

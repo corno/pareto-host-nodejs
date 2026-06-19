@@ -4,8 +4,8 @@ import p_change_context from 'pareto-core/dist/implementation/refiner/specials/c
 
 import p_unreachable_code_path from 'pareto-core/dist/implementation/transformer/specials/unreachable_code_path'
 
-import p_query from 'pareto-core/dist/implementation/query/query'
-import p_query_result from 'pareto-core/dist/implementation/query/query_result'
+import p_query from 'pareto-core/dist/implementation/query/__internal/query'
+import p_query_result from 'pareto-core/dist/implementation/query/__internal/query_result'
 
 
 //interface

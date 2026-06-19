@@ -3,8 +3,8 @@ import p_change_context from 'pareto-core/dist/implementation/refiner/specials/c
 //interface
 import * as resources from "pareto-resources/dist/interface/resources"
 
-import p_command from 'pareto-core/dist/implementation/command/command'
-import p_command_promise from 'pareto-core/dist/implementation/command/command_promise'
+import p_command from 'pareto-core/dist/implementation/command/__internal/command'
+import p_command_promise from 'pareto-core/dist/implementation/command/__internal/command_promise'
 
 //dependencies
 import { mkdir as fs_mkdir } from "fs"
