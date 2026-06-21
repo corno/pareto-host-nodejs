@@ -19,7 +19,7 @@ import * as t_path_to_text from "pareto-resources/dist/implementation/manual/tra
  */
 export const $$: resources.execute_unrestricted.queries.query_executable = p_query(
     ($p,) => {
-        const args = $p.args.__get_raw_copy()
+        const args = $p.args.__get_raw()
         return p_query_result((on_value, on_error) => {
 
             let cwd: string | undefined = undefined

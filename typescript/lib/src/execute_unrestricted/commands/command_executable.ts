@@ -30,7 +30,7 @@ export const $$: resources.execute_unrestricted.commands.command_executable = p_
 
             const child = spawn(
                 $p.program,
-                $p.args.__get_raw_copy(),
+                $p.args.__get_raw(),
                 {
                     'cwd': cwd,
                     'shell': false, // ✅ direct execution, no shell, no quoting, no escaping, no env var expansion, no globbing

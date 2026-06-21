@@ -33,7 +33,7 @@ export const $$: resources.execute_unrestricted.commands.smelly_command_executab
 
             const child = spawn(
                 $p.program,
-                $p.args.__get_raw_copy(),
+                $p.args.__get_raw(),
                 {
                     'cwd': cwd,
                     shell: false, // direct execution, no shell
