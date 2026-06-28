@@ -24,7 +24,7 @@ export const $$: resources.execute_unrestricted.commands.smelly_command_executab
         'execute': (on_success, on_error) => {
 
             let cwd: string | undefined = undefined
-            $p['working directory'].__extract_data(
+            $p['working directory'].__deprecated_extract_data(
                 ($) => {
                     cwd = t_path_to_text.Context_Path($)
                 },

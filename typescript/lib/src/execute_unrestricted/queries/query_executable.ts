@@ -23,7 +23,7 @@ export const $$: resources.execute_unrestricted.queries.query_executable = p_que
         return p_query_result((on_value, on_error) => {
 
             let cwd: string | undefined = undefined
-            $p['working directory'].__extract_data(
+            $p['working directory'].__deprecated_extract_data(
                 ($) => {
                     cwd = t_path_to_text.Context_Path($)
                 },

@@ -21,7 +21,7 @@ export const $$: resources.filesystem_unrestricted.commands.chmod = p_command(
 
             // Special bits (optional)
 
-            $p.mode['special bits'].__extract_data(
+            $p.mode['special bits'].__deprecated_extract_data(
                 ($) => {
                     if ($.setuid) {
                         mode += 0o4000
