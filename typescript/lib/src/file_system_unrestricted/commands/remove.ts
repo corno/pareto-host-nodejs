@@ -34,9 +34,9 @@ export const $$: resources.filesystem_unrestricted.commands.remove = p_command(
                                     if (err.code === 'EACCES' || err.code === 'EPERM') {
                                         return ['permission denied', null]
                                     }
-                                    // if (err.code === 'EISDIR' || err.code === 'ENOTDIR') {
-                                    //     return ['node is not a directory', null]
-                                    // }
+                                    if (err.code === 'ENOTDIR') {
+                                        throw new Error(`FIXME: implement ENOTDIR error handling (path: ${t_path_to_text.Context_Path($p.path)})`)
+                                    }
                                     // if (err.code === 'ERR_FS_EISDIR') {
                                     //     return ['node is a directory', null]
                                     // }
