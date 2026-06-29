@@ -21,25 +21,17 @@ export const $$: resources.filesystem_unrestricted.commands.chmod = p_command(
 
             // Special bits (optional)
 
-            $p.mode['special bits'].__deprecated_extract_data(
-                ($) => {
-                    if ($.setuid) {
-                        mode += 0o4000
-                    }
-                    if ($.setgid) {
-                        mode += 0o2000
-                    }
-                    if ($.sticky) {
-                        mode += 0o1000
-                    }
-
-                },
-                () => {
-                    // No special bits, do nothing
+            const sb = $p.mode['special bits'].__get_raw()
+            if (sb !== null) {
+                if (sb[0].setuid) {
+                    mode += 0o4000
                 }
-            )
-            if ($p.mode['special bits'] !== null) {
-                const specialBits = $p.mode['special bits']
+                if (sb[0].setgid) {
+                    mode += 0o2000
+                }
+                if (sb[0].sticky) {
+                    mode += 0o1000
+                }
             }
 
             // Owner, group, others

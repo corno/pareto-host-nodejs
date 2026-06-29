@@ -20,19 +20,15 @@ export const $$: resources.execute_unrestricted.commands.command_executable = p_
     ($p) => p_command_promise({
         'execute': (on_success, on_error) => {
 
-            let cwd: string | undefined = undefined
-            $p['working directory'].__deprecated_extract_data(
-                ($) => {
-                    cwd = t_path_to_text.Context_Path($)
-                },
-                () => { },
-            )
+            const wd_raw = $p['working directory'].__get_raw()
 
             const child = spawn(
                 $p.program,
                 $p.args.__get_raw(),
                 {
-                    'cwd': cwd,
+                    'cwd': wd_raw === null
+                        ? undefined
+                        : t_path_to_text.Context_Path(wd_raw[0]),
                     'shell': false, // ✅ direct execution, no shell, no quoting, no escaping, no env var expansion, no globbing
                 }
             )
