@@ -37,9 +37,6 @@ export const $$: resources.filesystem_unrestricted.commands.remove = p_command(
                                     if (err.code === 'ENOTDIR') {
                                         throw new Error(`FIXME: implement ENOTDIR error handling (path: ${t_path_to_text.Context_Path($p.path)})`)
                                     }
-                                    // if (err.code === 'ERR_FS_EISDIR') {
-                                    //     return ['node is a directory', null]
-                                    // }
                                     throw new Error(`unhandled fs.rm error code: ${err.code}`)
                                 })
                             })
