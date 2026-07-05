@@ -1,15 +1,15 @@
-import { type Resources } from "./signatures"
+import { type Resources } from "\./signatures.js"
 
-import { $$ as p_fs_unrestricted_chmod } from "./commands/chmod"
-import { $$ as p_fs_unrestricted_copy } from "./commands/copy"
-import { $$ as p_fs_unrestricted_make_directory } from "./commands/make_directory"
-import { $$ as p_fs_unrestricted_remove } from "./commands/remove"
-import { $$ as p_fs_unrestricted_write_file } from "./commands/write_file"
+import { $$ as p_fs_unrestricted_chmod } from "\./commands/chmod.js"
+import { $$ as p_fs_unrestricted_copy } from "\./commands/copy.js"
+import { $$ as p_fs_unrestricted_make_directory } from "\./commands/make_directory.js"
+import { $$ as p_fs_unrestricted_remove } from "\./commands/remove.js"
+import { $$ as p_fs_unrestricted_write_file } from "\./commands/write_file.js"
 
-import { $$ as q_fs_unrestricted_read_directory } from "./queries/read_directory"
-import { $$ as q_fs_unrestricted_read_file } from "./queries/read_file"
-// import { $$ as q_fs_unrestricted_stat } from "./queries/stat"
-import { $$ as q_fs_unrestricted_stat_possible_node } from "./queries/stat_possible_node"
+import { $$ as q_fs_unrestricted_read_directory } from "\./queries/read_directory.js"
+import { $$ as q_fs_unrestricted_read_file } from "\./queries/read_file.js"
+// import { $$ as q_fs_unrestricted_stat } from "\./queries/stat.js"
+import { $$ as q_fs_unrestricted_stat_possible_node } from "\./queries/stat_possible_node.js"
 
 export const $: Resources = {
     'commands': {

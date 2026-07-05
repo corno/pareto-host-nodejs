@@ -1,14 +1,14 @@
-import p_query from 'pareto-core/dist/implementation/query/__internal/query'
-import p_query_result from 'pareto-core/dist/implementation/query/__internal/query_result'
-import p_change_context from 'pareto-core/dist/implementation/refiner/specials/change_context'
+import p_query from 'pareto-core/implementation/query/__internal/query'
+import p_query_result from 'pareto-core/implementation/query/__internal/query_result'
+import p_change_context from 'pareto-core/implementation/refiner/specials/change_context'
 
 
 //interface
-import * as resources from "pareto-resources/dist/interface/resources"
+import * as resources from "pareto-resources/interface/resources"
 
 //dependencies
 import { stat as fs_stat } from "fs"
-import * as t_path_to_text from "pareto-resources/dist/implementation/manual/transformers/unrestricted_path/text"
+import * as t_path_to_text from "pareto-resources/implementation/manual/transformers/unrestricted_path/text"
 
 export const $$: resources.filesystem_unrestricted.queries.stat = p_query((
     $p

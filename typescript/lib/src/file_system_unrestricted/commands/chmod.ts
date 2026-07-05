@@ -1,17 +1,17 @@
-import p_change_context from 'pareto-core/dist/implementation/refiner/specials/change_context'
+import p_change_context from 'pareto-core/implementation/refiner/specials/change_context'
 
-import p_command from 'pareto-core/dist/implementation/command/__internal/command'
-import p_command_promise from 'pareto-core/dist/implementation/command/__internal/command_promise'
+import p_command from 'pareto-core/implementation/command/__internal/command'
+import p_command_promise from 'pareto-core/implementation/command/__internal/command_promise'
 
 //data types
-import * as d from "pareto-resources/dist/interface/generated/liana/schemas/fs_unrestricted_chmod/data"
+import * as d from "pareto-resources/interface/generated/liana/schemas/fs_unrestricted_chmod/data"
 
 //interface
-import * as resources from "pareto-resources/dist/interface/resources"
+import * as resources from "pareto-resources/interface/resources"
 
 //dependencies
 import { chmod as fs_chmod } from "fs"
-import * as t_path_to_text from "pareto-resources/dist/implementation/manual/transformers/unrestricted_path/text"
+import * as t_path_to_text from "pareto-resources/implementation/manual/transformers/unrestricted_path/text"
 
 export const $$: resources.filesystem_unrestricted.commands.chmod = p_command(
     ($p) => p_command_promise({

@@ -1,17 +1,17 @@
 
-import * as p_ from 'pareto-core/dist/implementation/command'
-import p_command from 'pareto-core/dist/implementation/command/__internal/command'
-import p_command_promise from 'pareto-core/dist/implementation/command/__internal/command_promise'
+import * as p_ from 'pareto-core/implementation/command'
+import p_command from 'pareto-core/implementation/command/__internal/command'
+import p_command_promise from 'pareto-core/implementation/command/__internal/command_promise'
 
 //interface
-import * as resources from "pareto-resources/dist/interface/resources"
+import * as resources from "pareto-resources/interface/resources"
 
 //dependencies
 import { spawn } from "node:child_process"
-import { Message } from '../../terminal_output'
-import * as t_path_to_text from "pareto-resources/dist/implementation/manual/transformers/unrestricted_path/text"
+import { Message } from "../../terminal_output.js"
+import * as t_path_to_text from "pareto-resources/implementation/manual/transformers/unrestricted_path/text"
 
-// import { Signature } from "pareto-resources/dist/interface/algorithms/commands/execute_smelly_procedure_executable"
+// import { Signature } from "pareto-resources/interface/algorithms/commands/execute_smelly_procedure_executable"
 
 
 /**

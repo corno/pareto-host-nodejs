@@ -1,9 +1,9 @@
 
-import p_command from 'pareto-core/dist/implementation/command/__internal/command'
-import p_command_promise from 'pareto-core/dist/implementation/command/__internal/command_promise'
+import p_command from 'pareto-core/implementation/command/__internal/command'
+import p_command_promise from 'pareto-core/implementation/command/__internal/command_promise'
 
 //interface
-import * as interface_ from "pareto-stream/dist/interface/commands"
+import * as interface_ from "pareto-stream/interface/commands"
 
 export const $$: interface_.commands.write_to_stderr = p_command(
     ($p) => p_command_promise({

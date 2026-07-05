@@ -1,15 +1,15 @@
-import p_change_context from 'pareto-core/dist/implementation/refiner/specials/change_context'
+import p_change_context from 'pareto-core/implementation/refiner/specials/change_context'
 
 //interface
-import * as resources from "pareto-resources/dist/interface/resources"
+import * as resources from "pareto-resources/interface/resources"
 
-import p_command from 'pareto-core/dist/implementation/command/__internal/command'
-import p_command_promise from 'pareto-core/dist/implementation/command/__internal/command_promise'
+import p_command from 'pareto-core/implementation/command/__internal/command'
+import p_command_promise from 'pareto-core/implementation/command/__internal/command_promise'
 
 //dependencies
 import { mkdir as fs_mkdir } from "fs"
 import { rm as fs_remove } from "fs"
-import * as t_path_to_text from "pareto-resources/dist/implementation/manual/transformers/unrestricted_path/text"
+import * as t_path_to_text from "pareto-resources/implementation/manual/transformers/unrestricted_path/text"
 
 export const $$: resources.filesystem_unrestricted.commands.make_directory = p_command(
     ($p) => p_command_promise({

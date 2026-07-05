@@ -1,6 +1,6 @@
 {
   "name": "pareto-host-nodejs",
-  "version": "0.2.83",
+  "version": "0.2.84",
   "license": "Apache-2.0",
   "author": "Corno",
   "description": "the exupery core package for creating a main function in a nodejs host environment",
@@ -18,6 +18,13 @@
   },
   "devDependencies": {
     "@types/node": "^25.0.3"
+  },
+  "type": "module",
+  "exports": {
+    "./*": {
+      "types": "./dist/*.d.ts",
+      "default": "./dist/*.js"
+    }
   },
   "main": "./dist/index.js",
   "types": "dist/index.d.ts",

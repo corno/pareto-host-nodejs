@@ -1,13 +1,13 @@
-import p_text_from_list from 'pareto-core/dist/implementation/transformer/specials/text_from_list'
+import p_text_from_list from 'pareto-core/implementation/transformer/specials/text_from_list'
 
 //interface
-import * as resources from "pareto-stream/dist/interface/commands"
+import * as resources from "pareto-stream/interface/commands"
 
 //dependencies
-import * as t_fp_to_list_of_characters from "pareto-fountain-pen/dist/implementation/manual/transformers/prose/list_of_characters"
+import * as t_fp_to_list_of_characters from "pareto-fountain-pen/implementation/manual/transformers/prose/list_of_characters"
 
-import p_command from 'pareto-core/dist/implementation/command/__internal/command'
-import p_command_promise from 'pareto-core/dist/implementation/command/__internal/command_promise'
+import p_command from 'pareto-core/implementation/command/__internal/command'
+import p_command_promise from 'pareto-core/implementation/command/__internal/command_promise'
 
 export const $$: resources.commands.log = p_command(
     ($p) => p_command_promise({

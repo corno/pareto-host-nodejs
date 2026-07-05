@@ -1,16 +1,16 @@
-import * as p_ from 'pareto-core/dist/implementation/refiner'
+import * as p_ from 'pareto-core/implementation/refiner'
 
-import { type main } from './signatures'
+import { type main } from './signatures.js'
 
-export * from './signatures'
+export * from './signatures.js'
 
 
 
-import { $ as r_execute_unrestricted } from "./execute_unrestricted/resources"
-// import { $ as r_execute_sandboxed } from "./execute_sandboxed/resources"
-import { $ as r_stream } from "./stream/resources"
-import { $ as r_filesystem_unrestricted } from "./file_system_unrestricted/resources"
-//import { $ as r_filesystem_sandboxed } from "./file_system_sandboxed/resources" --- IGNORE ---
+import { $ as r_execute_unrestricted } from "\./execute_unrestricted/resources.js"
+// import { $ as r_execute_sandboxed } from "\./execute_sandboxed/resources.js"
+import { $ as r_stream } from "\./stream/resources.js"
+import { $ as r_filesystem_unrestricted } from "\./file_system_unrestricted/resources.js"
+//import { $ as r_filesystem_sandboxed } from "\./file_system_sandboxed/resources.js" --- IGNORE ---
 
 /**
  * Runs a program main function, passing command line arguments (excluding

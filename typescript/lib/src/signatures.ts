@@ -1,10 +1,10 @@
-import * as p_ci from 'pareto-core/dist/interface/command'
+import * as p_ci from 'pareto-core/interface/command'
 
-import * as d_filesystem_unrestricted from "./file_system_unrestricted/signatures"
-import * as d_filesystem_stream from "./stream/signatures"
-import * as d_execute_unrestricted from "./execute_unrestricted/signatures"
+import * as d_filesystem_unrestricted from "\./file_system_unrestricted/signatures.js"
+import * as d_filesystem_stream from "\./stream/signatures.js"
+import * as d_execute_unrestricted from "\./execute_unrestricted/signatures.js"
 
-import * as d_main from "pareto-resources/dist/interface/data/temp_main"
+import * as d_main from "pareto-resources/interface/data/temp_main"
 
 export type Available_Standard_Resources = {
     'filesystem unrestricted': d_filesystem_unrestricted.Resources

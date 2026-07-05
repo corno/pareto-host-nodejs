@@ -1,6 +1,6 @@
-import * as p_temp from '../temp_core'
+import * as p_temp from '../temp_core.js'
 
-import * as resources from "pareto-resources/dist/interface/resources"
+import * as resources from "pareto-resources/interface/resources"
 
 export type Resources = p_temp.Resource_Collection<
         {

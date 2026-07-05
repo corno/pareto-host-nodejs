@@ -1,8 +1,8 @@
-import * as p_temp from '../temp_core'
+import * as p_temp from '../temp_core.js'
 
 
-import * as commands from "pareto-stream/dist/interface/commands"
-import * as queries from "pareto-stream/dist/interface/queries"
+import * as commands from "pareto-stream/interface/commands"
+import * as queries from "pareto-stream/interface/queries"
 
 
 export type Resources = p_temp.Resource_Collection<
