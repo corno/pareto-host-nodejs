@@ -1,4 +1,4 @@
-import { Resources } from "./signatures"
+import { type Resources } from "./signatures"
 
 import { $$ as c_stream_log_error } from "./commands/log_error"
 import { $$ as c_stream_log } from "./commands/log"

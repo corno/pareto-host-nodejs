@@ -1,6 +1,6 @@
 import * as p_ from 'pareto-core/dist/implementation/refiner'
 
-import { main } from './signatures'
+import { type main } from './signatures'
 
 export * from './signatures'
 

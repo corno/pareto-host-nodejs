@@ -1,4 +1,4 @@
-import { Resources } from "./signatures"
+import { type Resources } from "./signatures"
 
 import { $$ as p_fs_unrestricted_chmod } from "./commands/chmod"
 import { $$ as p_fs_unrestricted_copy } from "./commands/copy"

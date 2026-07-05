@@ -1,4 +1,4 @@
-import { Resources } from "./signatures"
+import { type Resources } from "./signatures"
 
 import { $$ as p_execute_command_executable } from "./commands/command_executable"
 import { $$ as p_execute_smelly_command_executable } from "./commands/smelly_command_executable"
