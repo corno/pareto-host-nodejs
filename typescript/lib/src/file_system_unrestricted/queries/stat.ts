@@ -1,5 +1,5 @@
-import p_query from 'pareto-core/implementation/query/__internal/query'
-import p_query_result from 'pareto-core/implementation/query/__internal/query_result'
+import p_query from 'pareto-core/implementation/__internal/query/query'
+import p_query_result from 'pareto-core/implementation/__internal/query/query_result'
 import p_change_context from 'pareto-core/implementation/refiner/specials/change_context'
 
 

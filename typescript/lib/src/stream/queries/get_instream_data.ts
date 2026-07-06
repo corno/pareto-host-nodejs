@@ -1,7 +1,7 @@
 import * as p_ from 'pareto-core/implementation/query'
 
-import p_query from 'pareto-core/implementation/query/__internal/query'
-import p_query_result from 'pareto-core/implementation/query/__internal/query_result'
+import p_query from 'pareto-core/implementation/__internal/query/query'
+import p_query_result from 'pareto-core/implementation/__internal/query/query_result'
 
 //interface
 import * as resources from "pareto-stream/interface/queries"

@@ -1,7 +1,7 @@
 import p_change_context from 'pareto-core/implementation/refiner/specials/change_context'
 
-import p_command from 'pareto-core/implementation/command/__internal/command'
-import p_command_promise from 'pareto-core/implementation/command/__internal/command_promise'
+import p_command from 'pareto-core/implementation/__internal/command/command'
+import p_command_promise from 'pareto-core/implementation/__internal/command/command_promise'
 
 //data types
 import * as d from "pareto-resources/interface/generated/liana/schemas/fs_unrestricted_chmod/data"
