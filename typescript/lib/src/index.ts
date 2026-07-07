@@ -8,7 +8,7 @@ import * as p_ci from 'pareto-core/interface/command'
  */
 
 
-import * as d_main from "pareto-resources/interface/data/temp_main"
+import * as d_main from "pareto-application-api/interface/data/main"
 
 
 export const run_main_command = (
