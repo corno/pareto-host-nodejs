@@ -1,17 +1,7 @@
 import * as p_ci from 'pareto-core/interface/command'
 
-import * as d_filesystem_unrestricted from "\./file_system_unrestricted/signatures.js"
-import * as d_filesystem_stream from "\./stream/signatures.js"
-import * as d_execute_unrestricted from "\./execute_unrestricted/signatures.js"
-
 import * as d_main from "pareto-resources/interface/data/temp_main"
 
-export type Available_Standard_Resources = {
-    'filesystem unrestricted': d_filesystem_unrestricted.Resources
-    'stream': d_filesystem_stream.Resources
-    'execute unrestricted': d_execute_unrestricted.Resources
-}
-
 export type main = (
-    get_main: ($r: Available_Standard_Resources) => p_ci.Command<d_main.Error, d_main.Parameters>,
+    get_main: () => p_ci.Command<d_main.Error, d_main.Parameters>,
 ) => undefined
