@@ -1,8 +1,8 @@
-import * as p_temp from '../temp_core.js'
+import * as p_ from 'pareto-core/interface/resource'
 
 import * as resources from "pareto-resources/interface/resources"
 
-export type Resources = p_temp.Resource_Collection<
+export type Resources = p_.Resource<
         {
             'command executable': resources.execute_unrestricted.commands.command_executable
             'smelly command executable': resources.execute_unrestricted.commands.smelly_command_executable
