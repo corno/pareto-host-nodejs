@@ -11,7 +11,7 @@ import { $$ as q_fs_unrestricted_read_file } from "./queries/read_file.js"
 // import { $$ as q_fs_unrestricted_stat } from "./queries/stat.js"
 import { $$ as q_fs_unrestricted_stat_possible_node } from "./queries/stat_possible_node.js"
 
-export const $: p_.Resource = {
+export const $ = {
     'commands': {
         'chmod': p_fs_unrestricted_chmod,
         'copy': p_fs_unrestricted_copy,
@@ -26,4 +26,4 @@ export const $: p_.Resource = {
         // 'stat': q_fs_unrestricted_stat,
         'stat possible node': q_fs_unrestricted_stat_possible_node,
     }
-}
+} satisfies p_.Resource

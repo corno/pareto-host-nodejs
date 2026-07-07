@@ -7,7 +7,7 @@ import { $$ as c_stream_write_to_stdout } from "./commands/write_to_stdout.js"
 
 import { $$ as q_stream_get_instream_data } from "./queries/get_instream_data.js"
 
-export const $: p_.Resource = {
+export const $ = {
     'commands': {
         'log error': c_stream_log_error,
         'log': c_stream_log,
@@ -18,4 +18,4 @@ export const $: p_.Resource = {
     'queries': {
         'get instream data': q_stream_get_instream_data,
     }
-}
+} satisfies p_.Resource

@@ -5,7 +5,7 @@ import { $$ as p_execute_command_executable } from "./commands/command_executabl
 import { $$ as p_execute_smelly_command_executable } from "./commands/smelly_command_executable.js"
 import { $$ as q_execute_query_executable } from "./queries/query_executable.js"
 
-export const $: p_.Resource = {
+export const $ = {
     'commands': {
         'command executable': p_execute_command_executable,
         'smelly command executable': p_execute_smelly_command_executable,
@@ -14,4 +14,4 @@ export const $: p_.Resource = {
     'queries': {
         'query executable': q_execute_query_executable,
     }
-}
+} satisfies p_.Resource
