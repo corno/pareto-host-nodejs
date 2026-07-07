@@ -44,7 +44,9 @@ export const $$: resources.execute_unrestricted.commands.command_executable = p_
             on_success()
         } else {
             on_error(['non zero exit code', {
-                'exit code': exitCode === null ? p_c.literal.not_set() : p_c.literal.set(exitCode),
+                'exit code': exitCode === null 
+                ? p_c.literal.not_set()
+                 : p_c.literal.set(exitCode),
                 'stderr': t_text_to_terminal_output.Message(stderrData),
             }])
         }

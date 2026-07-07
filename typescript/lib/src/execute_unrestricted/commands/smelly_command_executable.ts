@@ -21,6 +21,10 @@ export const $$: resources.execute_unrestricted.commands.smelly_command_executab
 
     const wd_raw = $p['working directory'].__get_raw()
 
+    let stderrData = ""
+
+    let stdoutData = ""
+
     const child = spawn(
         $p.program,
         $p.args.__get_raw(),
@@ -32,10 +36,6 @@ export const $$: resources.execute_unrestricted.commands.smelly_command_executab
             stdio: ['pipe', 'pipe', 'pipe'], // explicitly pipe stdin, stdout, stderr
         }
     )
-
-    let stderrData = ""
-
-    let stdoutData = ""
 
     child.stdout.on("data", chunk => {
         stdoutData += chunk.toString("utf8")
@@ -50,13 +50,14 @@ export const $$: resources.execute_unrestricted.commands.smelly_command_executab
     })
 
     child.on("close", exitCode => {
-        //what does an exit code of null even mean?
 
         if (exitCode === 0) {
             on_success()
         } else {
             on_error(['non zero exit code', {
-                'exit code': exitCode === null ? p_.literal.not_set() : p_.literal.set(exitCode),
+                'exit code': exitCode === null
+                    ? p_.literal.not_set()        //what does an exit code of null even mean?
+                    : p_.literal.set(exitCode),
                 'stderr': t_text_to_terminal_output.Message(stderrData),
                 'stdout': t_text_to_terminal_output.Message(stdoutData),
             }])

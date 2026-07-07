@@ -57,7 +57,9 @@ export const $$: resources.execute_unrestricted.queries.query_executable = p_.qu
         } else {
             on_error(p_change_context(null, () => {
                 return ['non zero exit code', {
-                    'exit code': exitCode === null ? p_.literal.not_set() : p_.literal.set(exitCode),
+                    'exit code': exitCode === null 
+                    ? p_.literal.not_set() 
+                    : p_.literal.set(exitCode),
                     'stderr': t_text_to_terminal_output.Message(stderrData),
                 }]
             }))

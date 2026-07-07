@@ -50,7 +50,9 @@ export const $$: resources.filesystem_unrestricted.queries.read_directory = p_.q
                     'value': {
                         'node type': $.isFile()
                             ? ['file', null]
-                            : $.isDirectory() ? ['directory', null] : ['other', null],
+                            : $.isDirectory()
+                                ? ['directory', null]
+                                : ['other', null],
                         'context directory': $p.path,
                         'path': t_path_to_path.create_node_path(
                             $p.path,
