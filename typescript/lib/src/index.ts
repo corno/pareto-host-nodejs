@@ -1,5 +1,5 @@
 import * as p_ from 'pareto-core/implementation/command'
-import * as p_ci from 'pareto-core/interface/command_action'
+import * as p_ci from 'pareto-core/interface/command_interface'
 
 /**
  * Runs a program main function, passing command line arguments (excluding
@@ -12,7 +12,7 @@ import * as d_main from "pareto-application-api/interface/data/main"
 
 
 export const run_main_command = (
-    get_main: () => p_ci.Command_Action<d_main.Error, d_main.Parameters>,
+    get_main: () => p_ci.Command_Interface<d_main.Error, d_main.Parameters>,
 ): undefined => {
     get_main().execute(
         {

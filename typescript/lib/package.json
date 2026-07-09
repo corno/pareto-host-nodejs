@@ -1,6 +1,6 @@
 {
   "name": "pareto-host-nodejs",
-  "version": "0.2.91",
+  "version": "0.2.92",
   "license": "Apache-2.0",
   "author": "Corno",
   "description": "the exupery core package for creating a main function in a nodejs host environment",
